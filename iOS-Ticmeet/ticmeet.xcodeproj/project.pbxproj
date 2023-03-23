@@ -1,0 +1,690 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		B336269535BDE5432203B09B /* Pods_ticmeet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11D97CC2A003F69C68BFF5F0 /* Pods_ticmeet.framework */; };
+		DA28A01329B408DB00558F48 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA28A01229B408DB00558F48 /* AppDelegate.swift */; };
+		DA28A01529B408DB00558F48 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA28A01429B408DB00558F48 /* SceneDelegate.swift */; };
+		DA28A01729B408DB00558F48 /* loginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA28A01629B408DB00558F48 /* loginVC.swift */; };
+		DA28A01A29B408DB00558F48 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA28A01829B408DB00558F48 /* Main.storyboard */; };
+		DA28A01C29B408DC00558F48 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DA28A01B29B408DC00558F48 /* Assets.xcassets */; };
+		DA28A01F29B408DC00558F48 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA28A01D29B408DC00558F48 /* LaunchScreen.storyboard */; };
+		DA3D3C8329C7438B005EFCB1 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = DA3D3C8229C7438B005EFCB1 /* FirebaseAnalytics */; };
+		DA3D3C8529C7438B005EFCB1 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = DA3D3C8429C7438B005EFCB1 /* FirebaseAuth */; };
+		DA3D3C8729C7438B005EFCB1 /* FirebaseAuthCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = DA3D3C8629C7438B005EFCB1 /* FirebaseAuthCombine-Community */; };
+		DA3D3C8929C7438B005EFCB1 /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = DA3D3C8829C7438B005EFCB1 /* FirebaseDatabase */; };
+		DA3D3C8B29C7438B005EFCB1 /* FirebaseDatabaseSwift in Frameworks */ = {isa = PBXBuildFile; productRef = DA3D3C8A29C7438B005EFCB1 /* FirebaseDatabaseSwift */; };
+		DA3D3C8D29C7438B005EFCB1 /* FirebaseDynamicLinks in Frameworks */ = {isa = PBXBuildFile; productRef = DA3D3C8C29C7438B005EFCB1 /* FirebaseDynamicLinks */; };
+		DA3D3C8F29C7438B005EFCB1 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = DA3D3C8E29C7438B005EFCB1 /* FirebaseFirestore */; };
+		DA3D3C9129C7438B005EFCB1 /* FirebaseFirestoreCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = DA3D3C9029C7438B005EFCB1 /* FirebaseFirestoreCombine-Community */; };
+		DA3D3C9329C7438B005EFCB1 /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = DA3D3C9229C7438B005EFCB1 /* FirebaseFirestoreSwift */; };
+		DA3D3C9529C7438B005EFCB1 /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = DA3D3C9429C7438B005EFCB1 /* FirebaseMessaging */; };
+		DA3D3C9729C7438B005EFCB1 /* FirebasePerformance in Frameworks */ = {isa = PBXBuildFile; productRef = DA3D3C9629C7438B005EFCB1 /* FirebasePerformance */; };
+		DA3D3C9929C7438B005EFCB1 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = DA3D3C9829C7438B005EFCB1 /* FirebaseStorage */; };
+		DA3D3C9B29C7438B005EFCB1 /* FirebaseStorageCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = DA3D3C9A29C7438B005EFCB1 /* FirebaseStorageCombine-Community */; };
+		DA3D3C9D29C76101005EFCB1 /* tabbarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3D3C9C29C76101005EFCB1 /* tabbarController.swift */; };
+		DA3D3C9F29C76405005EFCB1 /* searchVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3D3C9E29C76405005EFCB1 /* searchVC.swift */; };
+		DA3D3CA129C76416005EFCB1 /* favouritesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3D3CA029C76416005EFCB1 /* favouritesVC.swift */; };
+		DA3D3CA329C76421005EFCB1 /* messageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3D3CA229C76421005EFCB1 /* messageVC.swift */; };
+		DA3D3CA529C7642E005EFCB1 /* userVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3D3CA429C7642E005EFCB1 /* userVC.swift */; };
+		DA3D3CA729C76C7E005EFCB1 /* messageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3D3CA629C76C7E005EFCB1 /* messageCell.swift */; };
+		DA3D3CA929C77852005EFCB1 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3D3CA829C77852005EFCB1 /* Message.swift */; };
+		DA3D3CAB29C7831E005EFCB1 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DA3D3CAA29C7831E005EFCB1 /* GoogleService-Info.plist */; };
+		DA3D3CAD29C7C47A005EFCB1 /* adminVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3D3CAC29C7C47A005EFCB1 /* adminVC.swift */; };
+		DA41FA5C29C37481003A4A9B /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA41FA5B29C37481003A4A9B /* User.swift */; };
+		DA41FA5E29C37555003A4A9B /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA41FA5D29C37555003A4A9B /* DataService.swift */; };
+		DA41FA6029C375B6003A4A9B /* registerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA41FA5F29C375B6003A4A9B /* registerVC.swift */; };
+		DA41FA6229C37FCA003A4A9B /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA41FA6129C37FCA003A4A9B /* Event.swift */; };
+		DA92465829CBDD8C008AF232 /* eventUsersCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA92465729CBDD8C008AF232 /* eventUsersCell.swift */; };
+		DA96ABA829C534D800A18605 /* eventsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA96ABA729C534D800A18605 /* eventsVC.swift */; };
+		DA96ABAA29C5371500A18605 /* restartPasswordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA96ABA929C5371500A18605 /* restartPasswordVC.swift */; };
+		DAC47FB729CA58210094A377 /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC47FB629CA58210094A377 /* Comment.swift */; };
+		DADCD85D29C89BEA005C1B5E /* eventCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DADCD85C29C89BEA005C1B5E /* eventCell.swift */; };
+		DADD502A29CB41DB003B1EE3 /* registerNextVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DADD502929CB41DB003B1EE3 /* registerNextVC.swift */; };
+		DADD502C29CBBFA2003B1EE3 /* eventDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DADD502B29CBBFA2003B1EE3 /* eventDetailVC.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		11D97CC2A003F69C68BFF5F0 /* Pods_ticmeet.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ticmeet.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5DDE8B38D07AF4B13EC0E25F /* Pods-ticmeet.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ticmeet.debug.xcconfig"; path = "Target Support Files/Pods-ticmeet/Pods-ticmeet.debug.xcconfig"; sourceTree = "<group>"; };
+		CDA6E9ABAFAEA045FDCB5E85 /* Pods-ticmeet.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ticmeet.release.xcconfig"; path = "Target Support Files/Pods-ticmeet/Pods-ticmeet.release.xcconfig"; sourceTree = "<group>"; };
+		DA28A00F29B408DB00558F48 /* ticmeet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ticmeet.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		DA28A01229B408DB00558F48 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		DA28A01429B408DB00558F48 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		DA28A01629B408DB00558F48 /* loginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = loginVC.swift; sourceTree = "<group>"; };
+		DA28A01929B408DB00558F48 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		DA28A01B29B408DC00558F48 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		DA28A01E29B408DC00558F48 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		DA28A02029B408DC00558F48 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DA3D3C9C29C76101005EFCB1 /* tabbarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tabbarController.swift; sourceTree = "<group>"; };
+		DA3D3C9E29C76405005EFCB1 /* searchVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = searchVC.swift; sourceTree = "<group>"; };
+		DA3D3CA029C76416005EFCB1 /* favouritesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = favouritesVC.swift; sourceTree = "<group>"; };
+		DA3D3CA229C76421005EFCB1 /* messageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = messageVC.swift; sourceTree = "<group>"; };
+		DA3D3CA429C7642E005EFCB1 /* userVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = userVC.swift; sourceTree = "<group>"; };
+		DA3D3CA629C76C7E005EFCB1 /* messageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = messageCell.swift; sourceTree = "<group>"; };
+		DA3D3CA829C77852005EFCB1 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
+		DA3D3CAA29C7831E005EFCB1 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		DA3D3CAC29C7C47A005EFCB1 /* adminVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = adminVC.swift; sourceTree = "<group>"; };
+		DA41FA5B29C37481003A4A9B /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		DA41FA5D29C37555003A4A9B /* DataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
+		DA41FA5F29C375B6003A4A9B /* registerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = registerVC.swift; sourceTree = "<group>"; };
+		DA41FA6129C37FCA003A4A9B /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
+		DA92465729CBDD8C008AF232 /* eventUsersCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = eventUsersCell.swift; sourceTree = "<group>"; };
+		DA96ABA729C534D800A18605 /* eventsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = eventsVC.swift; sourceTree = "<group>"; };
+		DA96ABA929C5371500A18605 /* restartPasswordVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = restartPasswordVC.swift; sourceTree = "<group>"; };
+		DAC47FB629CA58210094A377 /* Comment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
+		DADCD85C29C89BEA005C1B5E /* eventCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = eventCell.swift; sourceTree = "<group>"; };
+		DADD502929CB41DB003B1EE3 /* registerNextVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = registerNextVC.swift; sourceTree = "<group>"; };
+		DADD502B29CBBFA2003B1EE3 /* eventDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = eventDetailVC.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		DA28A00C29B408DB00558F48 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DA3D3C9729C7438B005EFCB1 /* FirebasePerformance in Frameworks */,
+				DA3D3C8B29C7438B005EFCB1 /* FirebaseDatabaseSwift in Frameworks */,
+				DA3D3C9129C7438B005EFCB1 /* FirebaseFirestoreCombine-Community in Frameworks */,
+				DA3D3C9B29C7438B005EFCB1 /* FirebaseStorageCombine-Community in Frameworks */,
+				DA3D3C9529C7438B005EFCB1 /* FirebaseMessaging in Frameworks */,
+				DA3D3C8329C7438B005EFCB1 /* FirebaseAnalytics in Frameworks */,
+				DA3D3C9929C7438B005EFCB1 /* FirebaseStorage in Frameworks */,
+				DA3D3C8729C7438B005EFCB1 /* FirebaseAuthCombine-Community in Frameworks */,
+				DA3D3C8929C7438B005EFCB1 /* FirebaseDatabase in Frameworks */,
+				DA3D3C8529C7438B005EFCB1 /* FirebaseAuth in Frameworks */,
+				DA3D3C8D29C7438B005EFCB1 /* FirebaseDynamicLinks in Frameworks */,
+				DA3D3C8F29C7438B005EFCB1 /* FirebaseFirestore in Frameworks */,
+				DA3D3C9329C7438B005EFCB1 /* FirebaseFirestoreSwift in Frameworks */,
+				B336269535BDE5432203B09B /* Pods_ticmeet.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		53D8089847F92C39CFFE52CD /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				11D97CC2A003F69C68BFF5F0 /* Pods_ticmeet.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D24A1393DF7D9CDE7AF077CC /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				5DDE8B38D07AF4B13EC0E25F /* Pods-ticmeet.debug.xcconfig */,
+				CDA6E9ABAFAEA045FDCB5E85 /* Pods-ticmeet.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		DA28A00629B408DB00558F48 = {
+			isa = PBXGroup;
+			children = (
+				DA28A01129B408DB00558F48 /* ticmeet */,
+				DA28A01029B408DB00558F48 /* Products */,
+				D24A1393DF7D9CDE7AF077CC /* Pods */,
+				53D8089847F92C39CFFE52CD /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		DA28A01029B408DB00558F48 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				DA28A00F29B408DB00558F48 /* ticmeet.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		DA28A01129B408DB00558F48 /* ticmeet */ = {
+			isa = PBXGroup;
+			children = (
+				DAF2D29629C3539E00935EB4 /* Services */,
+				DAF2D29729C353A600935EB4 /* View */,
+				DAF2D29829C353AE00935EB4 /* Controller */,
+				DAF2D29A29C353BA00935EB4 /* Model */,
+				DAF2D29929C353B300935EB4 /* Supporting Files */,
+				DA28A01829B408DB00558F48 /* Main.storyboard */,
+				DA28A01D29B408DC00558F48 /* LaunchScreen.storyboard */,
+			);
+			path = ticmeet;
+			sourceTree = "<group>";
+		};
+		DAF2D29629C3539E00935EB4 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				DA41FA5D29C37555003A4A9B /* DataService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		DAF2D29729C353A600935EB4 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				DA3D3C9C29C76101005EFCB1 /* tabbarController.swift */,
+				DA3D3CA629C76C7E005EFCB1 /* messageCell.swift */,
+				DADCD85C29C89BEA005C1B5E /* eventCell.swift */,
+				DA92465729CBDD8C008AF232 /* eventUsersCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		DAF2D29829C353AE00935EB4 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				DA3D3CAC29C7C47A005EFCB1 /* adminVC.swift */,
+				DA96ABA729C534D800A18605 /* eventsVC.swift */,
+				DA3D3CA029C76416005EFCB1 /* favouritesVC.swift */,
+				DA28A01629B408DB00558F48 /* loginVC.swift */,
+				DA3D3CA229C76421005EFCB1 /* messageVC.swift */,
+				DA41FA5F29C375B6003A4A9B /* registerVC.swift */,
+				DADD502929CB41DB003B1EE3 /* registerNextVC.swift */,
+				DA96ABA929C5371500A18605 /* restartPasswordVC.swift */,
+				DA3D3C9E29C76405005EFCB1 /* searchVC.swift */,
+				DA3D3CA429C7642E005EFCB1 /* userVC.swift */,
+				DADD502B29CBBFA2003B1EE3 /* eventDetailVC.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		DAF2D29929C353B300935EB4 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				DA3D3CAA29C7831E005EFCB1 /* GoogleService-Info.plist */,
+				DA28A01229B408DB00558F48 /* AppDelegate.swift */,
+				DA28A01429B408DB00558F48 /* SceneDelegate.swift */,
+				DA28A01B29B408DC00558F48 /* Assets.xcassets */,
+				DA28A02029B408DC00558F48 /* Info.plist */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		DAF2D29A29C353BA00935EB4 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				DA41FA5B29C37481003A4A9B /* User.swift */,
+				DA41FA6129C37FCA003A4A9B /* Event.swift */,
+				DA3D3CA829C77852005EFCB1 /* Message.swift */,
+				DAC47FB629CA58210094A377 /* Comment.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		DA28A00E29B408DB00558F48 /* ticmeet */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DA28A02329B408DC00558F48 /* Build configuration list for PBXNativeTarget "ticmeet" */;
+			buildPhases = (
+				448F0177FB121ED22BDABD16 /* [CP] Check Pods Manifest.lock */,
+				DA28A00B29B408DB00558F48 /* Sources */,
+				DA28A00C29B408DB00558F48 /* Frameworks */,
+				DA28A00D29B408DB00558F48 /* Resources */,
+				D2A79B88174D97BA73573368 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ticmeet;
+			packageProductDependencies = (
+				DA3D3C8229C7438B005EFCB1 /* FirebaseAnalytics */,
+				DA3D3C8429C7438B005EFCB1 /* FirebaseAuth */,
+				DA3D3C8629C7438B005EFCB1 /* FirebaseAuthCombine-Community */,
+				DA3D3C8829C7438B005EFCB1 /* FirebaseDatabase */,
+				DA3D3C8A29C7438B005EFCB1 /* FirebaseDatabaseSwift */,
+				DA3D3C8C29C7438B005EFCB1 /* FirebaseDynamicLinks */,
+				DA3D3C8E29C7438B005EFCB1 /* FirebaseFirestore */,
+				DA3D3C9029C7438B005EFCB1 /* FirebaseFirestoreCombine-Community */,
+				DA3D3C9229C7438B005EFCB1 /* FirebaseFirestoreSwift */,
+				DA3D3C9429C7438B005EFCB1 /* FirebaseMessaging */,
+				DA3D3C9629C7438B005EFCB1 /* FirebasePerformance */,
+				DA3D3C9829C7438B005EFCB1 /* FirebaseStorage */,
+				DA3D3C9A29C7438B005EFCB1 /* FirebaseStorageCombine-Community */,
+			);
+			productName = ticmeet;
+			productReference = DA28A00F29B408DB00558F48 /* ticmeet.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		DA28A00729B408DB00558F48 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1420;
+				LastUpgradeCheck = 1420;
+				TargetAttributes = {
+					DA28A00E29B408DB00558F48 = {
+						CreatedOnToolsVersion = 14.2;
+					};
+				};
+			};
+			buildConfigurationList = DA28A00A29B408DB00558F48 /* Build configuration list for PBXProject "ticmeet" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = DA28A00629B408DB00558F48;
+			packageReferences = (
+				DA3D3C8129C7438B005EFCB1 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+			);
+			productRefGroup = DA28A01029B408DB00558F48 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				DA28A00E29B408DB00558F48 /* ticmeet */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		DA28A00D29B408DB00558F48 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DA28A01F29B408DC00558F48 /* LaunchScreen.storyboard in Resources */,
+				DA28A01C29B408DC00558F48 /* Assets.xcassets in Resources */,
+				DA28A01A29B408DB00558F48 /* Main.storyboard in Resources */,
+				DA3D3CAB29C7831E005EFCB1 /* GoogleService-Info.plist in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		448F0177FB121ED22BDABD16 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ticmeet-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D2A79B88174D97BA73573368 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ticmeet/Pods-ticmeet-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ticmeet/Pods-ticmeet-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ticmeet/Pods-ticmeet-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		DA28A00B29B408DB00558F48 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DA41FA5C29C37481003A4A9B /* User.swift in Sources */,
+				DA3D3CA529C7642E005EFCB1 /* userVC.swift in Sources */,
+				DADD502C29CBBFA2003B1EE3 /* eventDetailVC.swift in Sources */,
+				DADCD85D29C89BEA005C1B5E /* eventCell.swift in Sources */,
+				DA96ABAA29C5371500A18605 /* restartPasswordVC.swift in Sources */,
+				DADD502A29CB41DB003B1EE3 /* registerNextVC.swift in Sources */,
+				DA3D3CAD29C7C47A005EFCB1 /* adminVC.swift in Sources */,
+				DA3D3CA129C76416005EFCB1 /* favouritesVC.swift in Sources */,
+				DA41FA6029C375B6003A4A9B /* registerVC.swift in Sources */,
+				DA3D3C9F29C76405005EFCB1 /* searchVC.swift in Sources */,
+				DA3D3CA729C76C7E005EFCB1 /* messageCell.swift in Sources */,
+				DA28A01729B408DB00558F48 /* loginVC.swift in Sources */,
+				DA3D3CA329C76421005EFCB1 /* messageVC.swift in Sources */,
+				DA28A01329B408DB00558F48 /* AppDelegate.swift in Sources */,
+				DA28A01529B408DB00558F48 /* SceneDelegate.swift in Sources */,
+				DA41FA6229C37FCA003A4A9B /* Event.swift in Sources */,
+				DA3D3C9D29C76101005EFCB1 /* tabbarController.swift in Sources */,
+				DA92465829CBDD8C008AF232 /* eventUsersCell.swift in Sources */,
+				DA3D3CA929C77852005EFCB1 /* Message.swift in Sources */,
+				DAC47FB729CA58210094A377 /* Comment.swift in Sources */,
+				DA41FA5E29C37555003A4A9B /* DataService.swift in Sources */,
+				DA96ABA829C534D800A18605 /* eventsVC.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		DA28A01829B408DB00558F48 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DA28A01929B408DB00558F48 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		DA28A01D29B408DC00558F48 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DA28A01E29B408DC00558F48 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		DA28A02129B408DC00558F48 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		DA28A02229B408DC00558F48 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		DA28A02429B408DC00558F48 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5DDE8B38D07AF4B13EC0E25F /* Pods-ticmeet.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 7YAHT2XZPP;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "ticmeet/Supporting Files/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = Ticmeet;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.social-networking";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "To choose a photo!";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = yakupacs.ticmeet;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		DA28A02529B408DC00558F48 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = CDA6E9ABAFAEA045FDCB5E85 /* Pods-ticmeet.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 7YAHT2XZPP;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "ticmeet/Supporting Files/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = Ticmeet;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.social-networking";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "To choose a photo!";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = yakupacs.ticmeet;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		DA28A00A29B408DB00558F48 /* Build configuration list for PBXProject "ticmeet" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DA28A02129B408DC00558F48 /* Debug */,
+				DA28A02229B408DC00558F48 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DA28A02329B408DC00558F48 /* Build configuration list for PBXNativeTarget "ticmeet" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DA28A02429B408DC00558F48 /* Debug */,
+				DA28A02529B408DC00558F48 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		DA3D3C8129C7438B005EFCB1 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 9.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		DA3D3C8229C7438B005EFCB1 /* FirebaseAnalytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DA3D3C8129C7438B005EFCB1 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalytics;
+		};
+		DA3D3C8429C7438B005EFCB1 /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DA3D3C8129C7438B005EFCB1 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
+		DA3D3C8629C7438B005EFCB1 /* FirebaseAuthCombine-Community */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DA3D3C8129C7438B005EFCB1 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = "FirebaseAuthCombine-Community";
+		};
+		DA3D3C8829C7438B005EFCB1 /* FirebaseDatabase */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DA3D3C8129C7438B005EFCB1 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseDatabase;
+		};
+		DA3D3C8A29C7438B005EFCB1 /* FirebaseDatabaseSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DA3D3C8129C7438B005EFCB1 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseDatabaseSwift;
+		};
+		DA3D3C8C29C7438B005EFCB1 /* FirebaseDynamicLinks */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DA3D3C8129C7438B005EFCB1 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseDynamicLinks;
+		};
+		DA3D3C8E29C7438B005EFCB1 /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DA3D3C8129C7438B005EFCB1 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestore;
+		};
+		DA3D3C9029C7438B005EFCB1 /* FirebaseFirestoreCombine-Community */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DA3D3C8129C7438B005EFCB1 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = "FirebaseFirestoreCombine-Community";
+		};
+		DA3D3C9229C7438B005EFCB1 /* FirebaseFirestoreSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DA3D3C8129C7438B005EFCB1 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestoreSwift;
+		};
+		DA3D3C9429C7438B005EFCB1 /* FirebaseMessaging */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DA3D3C8129C7438B005EFCB1 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseMessaging;
+		};
+		DA3D3C9629C7438B005EFCB1 /* FirebasePerformance */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DA3D3C8129C7438B005EFCB1 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebasePerformance;
+		};
+		DA3D3C9829C7438B005EFCB1 /* FirebaseStorage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DA3D3C8129C7438B005EFCB1 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseStorage;
+		};
+		DA3D3C9A29C7438B005EFCB1 /* FirebaseStorageCombine-Community */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DA3D3C8129C7438B005EFCB1 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = "FirebaseStorageCombine-Community";
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = DA28A00729B408DB00558F48 /* Project object */;
+}
