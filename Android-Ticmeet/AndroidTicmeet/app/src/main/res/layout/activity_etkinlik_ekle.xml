@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ActivityKaydiTamamla">
+
+    <EditText
+        android:id="@+id/editTextEtkinlikAdi"
+        android:layout_width="387dp"
+        android:layout_height="46dp"
+        android:background="@null"
+        android:ems="10"
+        android:hint="Etkinlik Adı"
+        android:inputType="textPersonName"
+        tools:layout_editor_absoluteX="12dp"
+        tools:layout_editor_absoluteY="299dp" />
+
+    <EditText
+        android:id="@+id/editTextEtkinlikKonumu"
+        android:layout_width="387dp"
+        android:layout_height="46dp"
+        android:background="@null"
+        android:ems="10"
+        android:hint="Etkinlik konumu"
+        android:inputType="textPersonName"
+        tools:layout_editor_absoluteX="12dp"
+        tools:layout_editor_absoluteY="386dp" />
+
+    <EditText
+        android:id="@+id/editTextEtkinlikDetayi"
+        android:layout_width="387dp"
+        android:layout_height="41dp"
+        android:background="@null"
+        android:ems="10"
+        android:hint="Etkinlik detayı"
+        android:inputType="textPersonName"
+        tools:layout_editor_absoluteX="12dp"
+        tools:layout_editor_absoluteY="346dp" />
+
+    <ImageView
+        android:id="@+id/imageViewEtkinlikEkle"
+        android:layout_width="192dp"
+        android:layout_height="184dp"
+        app:srcCompat="@android:drawable/ic_menu_gallery"
+        tools:layout_editor_absoluteX="110dp"
+        tools:layout_editor_absoluteY="96dp" />
+
+    <Spinner
+        android:id="@+id/spinnerEtkinlik"
+        android:layout_width="407dp"
+        android:layout_height="35dp"
+        android:dropDownWidth="match_parent"
+        android:foregroundTint="#AA2020"
+        android:foregroundTintMode="multiply"
+        android:hapticFeedbackEnabled="false"
+        tools:layout_editor_absoluteX="1dp"
+        tools:layout_editor_absoluteY="444dp" />
+
+    <Button
+        android:id="@+id/buttonCikisYap"
+        android:layout_width="165dp"
+        android:layout_height="47dp"
+        android:backgroundTint="#EDB5B5"
+        android:text="Çıkış Yap"
+        android:textColor="@android:color/holo_red_dark"
+        tools:layout_editor_absoluteX="219dp"
+        tools:layout_editor_absoluteY="651dp" />
+
+    <Button
+        android:id="@+id/buttonEtkinlikEkle"
+        android:layout_width="176dp"
+        android:layout_height="46dp"
+        android:backgroundTint="#AAE6B2"
+        android:text="Etkinlik ekle"
+        android:textColor="@android:color/holo_green_dark"
+        tools:layout_editor_absoluteX="21dp"
+        tools:layout_editor_absoluteY="650dp" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
