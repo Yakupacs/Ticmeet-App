@@ -9,6 +9,6 @@ public class ActivityKaydol extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_kaydol);
+        setContentView(R.layout.activity_kayit_ol);
     }
 }
