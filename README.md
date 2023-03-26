@@ -43,7 +43,7 @@ class Event
 # Features
 
 - Kayıt Ol
-- Kayıt Ol 2 (Email ve şifre ile kayıt olduktan sonra çıkacak ikinci kayıt olma sayfası. Burada kullanıcı adı, ad soyad, doğum tarihi, cinsiyet gibi kişisel bilgiler kaydedilecek.)
+- Kaydı Tamamla (Email ve şifre ile kayıt olduktan sonra çıkacak ikinci kayıt olma sayfası. Burada kullanıcı adı, ad soyad, doğum tarihi, cinsiyet gibi kişisel bilgiler kaydedilecek.)
 - Giriş Yap
 - Şifremi Unuttum (Giriş Ekranında Şifremi Unuttum butonuna basıldığında açılacak.)
 - Etkinlikler
