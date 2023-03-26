@@ -40,7 +40,7 @@ class Event
 }
 ```
 
-# Screens
+# Features
 
 - Kayıt Ol
 - Kayıt Ol 2 (Email ve şifre ile kayıt olduktan sonra çıkacak ikinci kayıt olma sayfası. Burada kullanıcı adı, ad soyad, doğum tarihi, cinsiyet gibi kişisel bilgiler kaydedilecek.)
@@ -54,7 +54,7 @@ class Event
 - Kullanıcı Profili
 - Kullanıcı Profili Düzenle (Kullanıcı Profili sayfasında Profilimi Düzenle'ye tıklandığında açılacak.)
 
-# Photos
+# Screens
 
 <img width=201 src="https://user-images.githubusercontent.com/73075252/227750133-eef3f8d1-19e3-42f7-9956-7c91272a37d5.png">
 <img width=201 src="https://user-images.githubusercontent.com/73075252/227750134-4b9d59a8-5cce-4545-9edf-92b28bf44ed8.png">
