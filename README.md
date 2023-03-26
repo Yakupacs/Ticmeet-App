@@ -1,16 +1,16 @@
 # Screens
 
 - Kayıt Ol
-- Kayıt Ol 2
+- Kayıt Ol 2 (Email ve şifre ile kayıt olduktan sonra çıkacak ikinci kayıt olma sayfası. Burada kullanıcı adı, ad soyad, doğum tarihi, cinsiyet gibi kişisel bilgiler kaydedilecek.)
 - Giriş Yap
-- Şifremi Unuttum
-- Etkinliklerim
+- Şifremi Unuttum (Giriş Ekranında Şifremi Unuttum butonuna basıldığında açılacak.)
 - Etkinlikler
-- Etkinlik Detayı
-- Etkinlik Arama
+- Etkinlik Detayı (Etkinlikler sayfası tıklandığında girilen etkinliğin detayları olacak.)
+- Etkinlik Arama (Etkinlikler sayfasının en üstünde SearchBar şeklinde olacak.)
 - Mesajlar
-- Mesaj Detayı
+- Mesaj Detayı (Mesaj sayfasında mesaj tıklandığında açılacak detaylar.)
 - Kullanıcı Profili
+- Kullanıcı Profili Düzenle (Kullanıcı Profili sayfasında Profilimi Düzenle'ye tıklandığında açılacak.)
 
 # Photos
 
