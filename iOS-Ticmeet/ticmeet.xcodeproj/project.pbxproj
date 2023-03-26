@@ -28,25 +28,31 @@
 		DA3D3C9929C7438B005EFCB1 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = DA3D3C9829C7438B005EFCB1 /* FirebaseStorage */; };
 		DA3D3C9B29C7438B005EFCB1 /* FirebaseStorageCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = DA3D3C9A29C7438B005EFCB1 /* FirebaseStorageCombine-Community */; };
 		DA3D3C9D29C76101005EFCB1 /* tabbarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3D3C9C29C76101005EFCB1 /* tabbarController.swift */; };
-		DA3D3C9F29C76405005EFCB1 /* searchVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3D3C9E29C76405005EFCB1 /* searchVC.swift */; };
-		DA3D3CA129C76416005EFCB1 /* favouritesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3D3CA029C76416005EFCB1 /* favouritesVC.swift */; };
 		DA3D3CA329C76421005EFCB1 /* messageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3D3CA229C76421005EFCB1 /* messageVC.swift */; };
 		DA3D3CA529C7642E005EFCB1 /* userVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3D3CA429C7642E005EFCB1 /* userVC.swift */; };
 		DA3D3CA729C76C7E005EFCB1 /* messageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3D3CA629C76C7E005EFCB1 /* messageCell.swift */; };
 		DA3D3CA929C77852005EFCB1 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3D3CA829C77852005EFCB1 /* Message.swift */; };
 		DA3D3CAB29C7831E005EFCB1 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DA3D3CAA29C7831E005EFCB1 /* GoogleService-Info.plist */; };
-		DA3D3CAD29C7C47A005EFCB1 /* adminVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3D3CAC29C7C47A005EFCB1 /* adminVC.swift */; };
 		DA41FA5C29C37481003A4A9B /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA41FA5B29C37481003A4A9B /* User.swift */; };
 		DA41FA5E29C37555003A4A9B /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA41FA5D29C37555003A4A9B /* DataService.swift */; };
 		DA41FA6029C375B6003A4A9B /* registerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA41FA5F29C375B6003A4A9B /* registerVC.swift */; };
 		DA41FA6229C37FCA003A4A9B /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA41FA6129C37FCA003A4A9B /* Event.swift */; };
+		DA90346929CDE97100C8EEAB /* tiyatroCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA90346829CDE97100C8EEAB /* tiyatroCell.swift */; };
+		DA90346B29CDE97B00C8EEAB /* soylesiCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA90346A29CDE97B00C8EEAB /* soylesiCell.swift */; };
+		DA90346D29CDE98500C8EEAB /* peformansCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA90346C29CDE98500C8EEAB /* peformansCell.swift */; };
+		DA90346F29CDE99000C8EEAB /* baleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA90346E29CDE99000C8EEAB /* baleCell.swift */; };
+		DA90347129CDE99C00C8EEAB /* sinemaCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA90347029CDE99C00C8EEAB /* sinemaCell.swift */; };
+		DA90347329CDE9C700C8EEAB /* operaCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA90347229CDE9C700C8EEAB /* operaCell.swift */; };
+		DA90347529CDE9CF00C8EEAB /* sergiCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA90347429CDE9CF00C8EEAB /* sergiCell.swift */; };
 		DA92465829CBDD8C008AF232 /* eventUsersCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA92465729CBDD8C008AF232 /* eventUsersCell.swift */; };
 		DA96ABA829C534D800A18605 /* eventsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA96ABA729C534D800A18605 /* eventsVC.swift */; };
 		DA96ABAA29C5371500A18605 /* restartPasswordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA96ABA929C5371500A18605 /* restartPasswordVC.swift */; };
 		DAC47FB729CA58210094A377 /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC47FB629CA58210094A377 /* Comment.swift */; };
-		DADCD85D29C89BEA005C1B5E /* eventCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DADCD85C29C89BEA005C1B5E /* eventCell.swift */; };
+		DADCD85D29C89BEA005C1B5E /* konserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DADCD85C29C89BEA005C1B5E /* konserCell.swift */; };
 		DADD502A29CB41DB003B1EE3 /* registerNextVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DADD502929CB41DB003B1EE3 /* registerNextVC.swift */; };
 		DADD502C29CBBFA2003B1EE3 /* eventDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DADD502B29CBBFA2003B1EE3 /* eventDetailVC.swift */; };
+		DAE71C9A29CD219600CB7783 /* userEventsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE71C9929CD219600CB7783 /* userEventsCell.swift */; };
+		DAE71C9C29CD30CB00CB7783 /* profileEditVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE71C9B29CD30CB00CB7783 /* profileEditVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -62,25 +68,31 @@
 		DA28A01E29B408DC00558F48 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DA28A02029B408DC00558F48 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DA3D3C9C29C76101005EFCB1 /* tabbarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tabbarController.swift; sourceTree = "<group>"; };
-		DA3D3C9E29C76405005EFCB1 /* searchVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = searchVC.swift; sourceTree = "<group>"; };
-		DA3D3CA029C76416005EFCB1 /* favouritesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = favouritesVC.swift; sourceTree = "<group>"; };
 		DA3D3CA229C76421005EFCB1 /* messageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = messageVC.swift; sourceTree = "<group>"; };
 		DA3D3CA429C7642E005EFCB1 /* userVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = userVC.swift; sourceTree = "<group>"; };
 		DA3D3CA629C76C7E005EFCB1 /* messageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = messageCell.swift; sourceTree = "<group>"; };
 		DA3D3CA829C77852005EFCB1 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		DA3D3CAA29C7831E005EFCB1 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		DA3D3CAC29C7C47A005EFCB1 /* adminVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = adminVC.swift; sourceTree = "<group>"; };
 		DA41FA5B29C37481003A4A9B /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		DA41FA5D29C37555003A4A9B /* DataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
 		DA41FA5F29C375B6003A4A9B /* registerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = registerVC.swift; sourceTree = "<group>"; };
 		DA41FA6129C37FCA003A4A9B /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
+		DA90346829CDE97100C8EEAB /* tiyatroCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tiyatroCell.swift; sourceTree = "<group>"; };
+		DA90346A29CDE97B00C8EEAB /* soylesiCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = soylesiCell.swift; sourceTree = "<group>"; };
+		DA90346C29CDE98500C8EEAB /* peformansCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = peformansCell.swift; sourceTree = "<group>"; };
+		DA90346E29CDE99000C8EEAB /* baleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = baleCell.swift; sourceTree = "<group>"; };
+		DA90347029CDE99C00C8EEAB /* sinemaCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sinemaCell.swift; sourceTree = "<group>"; };
+		DA90347229CDE9C700C8EEAB /* operaCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = operaCell.swift; sourceTree = "<group>"; };
+		DA90347429CDE9CF00C8EEAB /* sergiCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sergiCell.swift; sourceTree = "<group>"; };
 		DA92465729CBDD8C008AF232 /* eventUsersCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = eventUsersCell.swift; sourceTree = "<group>"; };
 		DA96ABA729C534D800A18605 /* eventsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = eventsVC.swift; sourceTree = "<group>"; };
 		DA96ABA929C5371500A18605 /* restartPasswordVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = restartPasswordVC.swift; sourceTree = "<group>"; };
 		DAC47FB629CA58210094A377 /* Comment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
-		DADCD85C29C89BEA005C1B5E /* eventCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = eventCell.swift; sourceTree = "<group>"; };
+		DADCD85C29C89BEA005C1B5E /* konserCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = konserCell.swift; sourceTree = "<group>"; };
 		DADD502929CB41DB003B1EE3 /* registerNextVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = registerNextVC.swift; sourceTree = "<group>"; };
 		DADD502B29CBBFA2003B1EE3 /* eventDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = eventDetailVC.swift; sourceTree = "<group>"; };
+		DAE71C9929CD219600CB7783 /* userEventsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = userEventsCell.swift; sourceTree = "<group>"; };
+		DAE71C9B29CD30CB00CB7783 /* profileEditVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = profileEditVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -170,8 +182,16 @@
 			children = (
 				DA3D3C9C29C76101005EFCB1 /* tabbarController.swift */,
 				DA3D3CA629C76C7E005EFCB1 /* messageCell.swift */,
-				DADCD85C29C89BEA005C1B5E /* eventCell.swift */,
+				DADCD85C29C89BEA005C1B5E /* konserCell.swift */,
 				DA92465729CBDD8C008AF232 /* eventUsersCell.swift */,
+				DAE71C9929CD219600CB7783 /* userEventsCell.swift */,
+				DA90346829CDE97100C8EEAB /* tiyatroCell.swift */,
+				DA90346A29CDE97B00C8EEAB /* soylesiCell.swift */,
+				DA90346C29CDE98500C8EEAB /* peformansCell.swift */,
+				DA90346E29CDE99000C8EEAB /* baleCell.swift */,
+				DA90347029CDE99C00C8EEAB /* sinemaCell.swift */,
+				DA90347229CDE9C700C8EEAB /* operaCell.swift */,
+				DA90347429CDE9CF00C8EEAB /* sergiCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -179,17 +199,15 @@
 		DAF2D29829C353AE00935EB4 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				DA3D3CAC29C7C47A005EFCB1 /* adminVC.swift */,
-				DA96ABA729C534D800A18605 /* eventsVC.swift */,
-				DA3D3CA029C76416005EFCB1 /* favouritesVC.swift */,
-				DA28A01629B408DB00558F48 /* loginVC.swift */,
-				DA3D3CA229C76421005EFCB1 /* messageVC.swift */,
 				DA41FA5F29C375B6003A4A9B /* registerVC.swift */,
 				DADD502929CB41DB003B1EE3 /* registerNextVC.swift */,
+				DA28A01629B408DB00558F48 /* loginVC.swift */,
 				DA96ABA929C5371500A18605 /* restartPasswordVC.swift */,
-				DA3D3C9E29C76405005EFCB1 /* searchVC.swift */,
-				DA3D3CA429C7642E005EFCB1 /* userVC.swift */,
+				DA96ABA729C534D800A18605 /* eventsVC.swift */,
 				DADD502B29CBBFA2003B1EE3 /* eventDetailVC.swift */,
+				DA3D3CA229C76421005EFCB1 /* messageVC.swift */,
+				DA3D3CA429C7642E005EFCB1 /* userVC.swift */,
+				DAE71C9B29CD30CB00CB7783 /* profileEditVC.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -354,25 +372,31 @@
 				DA41FA5C29C37481003A4A9B /* User.swift in Sources */,
 				DA3D3CA529C7642E005EFCB1 /* userVC.swift in Sources */,
 				DADD502C29CBBFA2003B1EE3 /* eventDetailVC.swift in Sources */,
-				DADCD85D29C89BEA005C1B5E /* eventCell.swift in Sources */,
+				DADCD85D29C89BEA005C1B5E /* konserCell.swift in Sources */,
+				DA90347129CDE99C00C8EEAB /* sinemaCell.swift in Sources */,
 				DA96ABAA29C5371500A18605 /* restartPasswordVC.swift in Sources */,
 				DADD502A29CB41DB003B1EE3 /* registerNextVC.swift in Sources */,
-				DA3D3CAD29C7C47A005EFCB1 /* adminVC.swift in Sources */,
-				DA3D3CA129C76416005EFCB1 /* favouritesVC.swift in Sources */,
+				DA90346929CDE97100C8EEAB /* tiyatroCell.swift in Sources */,
 				DA41FA6029C375B6003A4A9B /* registerVC.swift in Sources */,
-				DA3D3C9F29C76405005EFCB1 /* searchVC.swift in Sources */,
 				DA3D3CA729C76C7E005EFCB1 /* messageCell.swift in Sources */,
+				DAE71C9A29CD219600CB7783 /* userEventsCell.swift in Sources */,
 				DA28A01729B408DB00558F48 /* loginVC.swift in Sources */,
+				DA90346B29CDE97B00C8EEAB /* soylesiCell.swift in Sources */,
 				DA3D3CA329C76421005EFCB1 /* messageVC.swift in Sources */,
+				DA90346D29CDE98500C8EEAB /* peformansCell.swift in Sources */,
 				DA28A01329B408DB00558F48 /* AppDelegate.swift in Sources */,
 				DA28A01529B408DB00558F48 /* SceneDelegate.swift in Sources */,
 				DA41FA6229C37FCA003A4A9B /* Event.swift in Sources */,
 				DA3D3C9D29C76101005EFCB1 /* tabbarController.swift in Sources */,
 				DA92465829CBDD8C008AF232 /* eventUsersCell.swift in Sources */,
+				DA90347529CDE9CF00C8EEAB /* sergiCell.swift in Sources */,
 				DA3D3CA929C77852005EFCB1 /* Message.swift in Sources */,
+				DA90347329CDE9C700C8EEAB /* operaCell.swift in Sources */,
 				DAC47FB729CA58210094A377 /* Comment.swift in Sources */,
 				DA41FA5E29C37555003A4A9B /* DataService.swift in Sources */,
+				DAE71C9C29CD30CB00CB7783 /* profileEditVC.swift in Sources */,
 				DA96ABA829C534D800A18605 /* eventsVC.swift in Sources */,
+				DA90346F29CDE99000C8EEAB /* baleCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

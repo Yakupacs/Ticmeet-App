@@ -21,9 +21,10 @@ class Event
     var eventLatitude = Double()
     var eventComments = [String]()
     var eventAttented = Int()
-    var eventUsersID = [String]()
+    var eventUsersEmail = [String]()
+    var eventCurrentUserIsAttented = Bool()
     
-    init(eventID: String = String(), eventCategory: String = String(), eventName: String = String(), eventSubscriber: Int = Int(), eventDetail: String = String(), eventImage: String = String(), eventLocation: String = String(), eventLongitude: Double = Double(), eventLatitude: Double = Double(), eventComments: [String] = [String](), eventAttented: Int = Int(), eventUsersID: [String] = [String]()) {
+    init(eventID: String = String(), eventCategory: String = String(), eventName: String = String(), eventSubscriber: Int = Int(), eventDetail: String = String(), eventImage: String = String(), eventLocation: String = String(), eventLongitude: Double = Double(), eventLatitude: Double = Double(), eventComments: [String] = [String](), eventAttented: Int = Int(), eventUsersEmail: [String] = [String](), eventCurrentUserIsAttented: Bool = Bool()) {
         self.eventID = eventID
         self.eventCategory = eventCategory
         self.eventName = eventName
@@ -35,6 +36,7 @@ class Event
         self.eventLatitude = eventLatitude
         self.eventComments = eventComments
         self.eventAttented = eventAttented
-        self.eventUsersID = eventUsersID
+        self.eventUsersEmail = eventUsersEmail
+        self.eventCurrentUserIsAttented = eventCurrentUserIsAttented
     }
 }

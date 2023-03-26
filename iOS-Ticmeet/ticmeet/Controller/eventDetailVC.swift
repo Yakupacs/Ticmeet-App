@@ -6,9 +6,11 @@
 //
 
 import UIKit
+import Firebase
+import SDWebImage
 
 class eventDetailVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
-
+    
     @IBOutlet weak var eventNameLabel: UILabel!
     @IBOutlet weak var usersCollectionView: UICollectionView!
     @IBOutlet weak var eventLocationLabel: UILabel!
@@ -25,7 +27,7 @@ class eventDetailVC: UIViewController, UICollectionViewDelegate, UICollectionVie
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         usersCollectionView.delegate = self
         usersCollectionView.dataSource = self
         setConfigure()
@@ -50,20 +52,54 @@ class eventDetailVC: UIViewController, UICollectionViewDelegate, UICollectionVie
         return 15
     }
     
+    func getUsersEmail(){
+//        var emails = getEvent.eventUsersEmail
+//        var users = [User]()
+//
+//        let firestore = Firestore.firestore()
+//
+//        firestore.collection("User").whereField("userEmail", in: emails).getDocuments { (snapshot, error) in
+//            if let error = error {
+//                print("Hata: \(error.localizedDescription)")
+//            } else {
+//                guard let snapshot = snapshot else { return }
+//                for document in snapshot.documents {
+//                    var usersEmails = document.get("userEmail") as? String
+//                    var usersName = document.get("userName") as? String
+//                    var usersImage = document.get("userImage") as? String
+//                    var userTopImage = document.get("userTopImage") as? String
+//                    var userAge = document.get("userAge") as? Int
+//                    var usersGender = document.get("userGender") as? String
+//                    var usersBio = document.get("userBio") as? String
+//                    var usersLocation = document.get("userLocation") as? String
+//                    var usersFollowers = document.get("userFollowers") as? [String]
+//                    var usersFollowing = document.get("userFollowing") as? [String]
+//
+//                    let user = User(userName: usersName, userEmail: usersEmails, userPassword: nil, userImage: UIImage(), userTopImage: nil, userAge: userAge, userGender: usersGender, userBio: usersBio, userLocation: usersLocation, userFollowers: usersFollowers, userFollowing: usersFollowing, userRegisterDate: nil, userEventsID: nil)
+//                    users.append(user)
+//                }
+//                // Kullanıcıları aldıktan sonra kullanabilirsiniz.
+//                print("Email'e sahip kullanıcılar: \(users)")
+//            }
+//        }
+//
+    }
     
     func setConfigure(){
         eventNameLabel.text = getEvent.eventName
         eventLocationLabel.text = getEvent.eventLocation
         eventDetailLabel.text = getEvent.eventDetail
         eventAttentedLabel.text = "\(getEvent.eventAttented)"
+        eventImageView.sd_setImage(with: URL(string: getEvent.eventImage))
         
-        eventImageView.layer.cornerRadius = 25
+        getUsersEmail()
+        
         detailView.layer.cornerRadius = 15
         attentedView.layer.cornerRadius = 15
         locationView.layer.cornerRadius = 15
         eventUsersView.layer.cornerRadius = 15
     }
-
+    
     @IBAction func backFunc(_ sender: Any) {
         self.dismiss(animated: true)
     }

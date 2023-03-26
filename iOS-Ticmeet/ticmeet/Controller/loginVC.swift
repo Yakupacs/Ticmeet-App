@@ -10,7 +10,7 @@ import Firebase
 import FirebaseAuth
 
 class loginVC: UIViewController {
-
+    
     @IBOutlet weak var facebookLoginButton: UIButton!
     @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var passwordTextfield: UITextField!
@@ -36,8 +36,8 @@ class loginVC: UIViewController {
     @objc func handleTap(){
         view.endEditing(true)
     }
-
-
+    
+    
     @IBAction func toRegisterFunc(_ sender: Any) {
         performSegue(withIdentifier: "toRegister", sender: nil)
     }
@@ -78,20 +78,20 @@ class loginVC: UIViewController {
     }
     
     func textFieldLeftImage(imageName: String, textField: UITextField){
-            let imageView = UIImageView(frame: CGRect(x: 8.0, y: 8.0, width: 24.0, height: 24.0))
-            let image = UIImage(named: imageName);
-            imageView.contentMode = .scaleAspectFit
-            imageView.image = image;
-            let view = UIView(frame: CGRect(x: 0, y: 0, width: 40, height: 40))
-            view.addSubview(imageView)
-
-            textField.leftView = view;
-            textField.leftViewMode = .always
-
-            textField.layer.cornerRadius = 20.0
-            textField.layer.borderWidth = 1.5
-            textField.layer.borderColor = UIColor(named: NSDataAssetName(stringLiteral: "gray"))!.cgColor
-        }
-
+        let imageView = UIImageView(frame: CGRect(x: 8.0, y: 8.0, width: 24.0, height: 24.0))
+        let image = UIImage(named: imageName);
+        imageView.contentMode = .scaleAspectFit
+        imageView.image = image;
+        let view = UIView(frame: CGRect(x: 0, y: 0, width: 40, height: 40))
+        view.addSubview(imageView)
+        
+        textField.leftView = view;
+        textField.leftViewMode = .always
+        
+        textField.layer.cornerRadius = 20.0
+        textField.layer.borderWidth = 1.5
+        textField.layer.borderColor = UIColor(named: NSDataAssetName(stringLiteral: "gray"))!.cgColor
+    }
+    
 }
 
