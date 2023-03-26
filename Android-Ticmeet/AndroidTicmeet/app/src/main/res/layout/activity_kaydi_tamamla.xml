@@ -23,14 +23,16 @@
 
     <ImageView
         android:id="@+id/imageViewProfilResmi"
-        android:layout_width="160dp"
-        android:layout_height="147dp"
+        android:layout_width="186dp"
+        android:layout_height="181dp"
         android:layout_marginBottom="36dp"
+        android:clickable="true"
+        android:onClick="profilResmiSec"
         app:layout_constraintBottom_toTopOf="@+id/editTextAdVeSoyad"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textViewKaydiTamamla"
-        tools:srcCompat="@tools:sample/avatars" />
+        tools:srcCompat="@drawable/EmptyPic" />
 
     <TextView
         android:id="@+id/textViewKaydiTamamla"
