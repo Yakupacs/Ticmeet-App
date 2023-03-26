@@ -10,7 +10,7 @@ import UIKit
 class tabbarController: UITabBarController {
     
     var tabbar = UITabBar()
-//    var tabbarBackgroundColor: UIColor = UIColor(named: NSDataAssetName(stringLiteral: "tabbarBackgroundColor"))!
+    //    var tabbarBackgroundColor: UIColor = UIColor(named: NSDataAssetName(stringLiteral: "tabbarBackgroundColor"))!
     var tabbarBackgroundColor: UIColor = UIColor.black
     @IBOutlet weak var myTabBar: UITabBar!
     
@@ -25,7 +25,7 @@ class tabbarController: UITabBarController {
         for item in tabbar.items!{
             item.setCustomSize(size: CGSizeMake(30, 30))
             if item == tabbar.selectedItem{
-                item.setCustomSize(size: CGSizeMake(36, 36))
+                item.setCustomSize(size: CGSizeMake(30, 30))
             }
         }
     }
@@ -37,13 +37,13 @@ class tabbarController: UITabBarController {
         for item in tabbar.items!{
             item.setCustomSize(size: CGSizeMake(30, 30))
             if item == tabbar.selectedItem{
-                item.setCustomSize(size: CGSizeMake(36, 36))
+                item.setCustomSize(size: CGSizeMake(30, 30))
             }
         }
         
         self.simpleAnimationWhenSelectItem(item: item)
     }
-
+    
     func simpleAnimationWhenSelectItem(item : UITabBarItem)
     {
         guard let barItemView = item.value(forKey: "view") as? UIView else { return }
@@ -53,7 +53,7 @@ class tabbarController: UITabBarController {
             barItemView.transform = CGAffineTransform.identity.scaledBy(x: 1.2, y: 1.2)
         }
         propertyAnimator.addAnimations({barItemView.transform = .identity},
-                                        delayFactor: CGFloat(timeInterval))
+                                       delayFactor: CGFloat(timeInterval))
         propertyAnimator.startAnimation()
     }
     
@@ -81,15 +81,15 @@ class tabbarController: UITabBarController {
 }
 
 extension UIImage {
-   class func imageWithColor(color: UIColor, size: CGSize) -> UIImage {
-    let rect: CGRect = CGRect(x: 0, y: 0, width: size.width, height: size.height)
-    UIGraphicsBeginImageContextWithOptions(size, false, 0)
-    color.setFill()
-    UIRectFill(rect)
-    let image: UIImage = UIGraphicsGetImageFromCurrentImageContext()!
-    UIGraphicsEndImageContext()
-    return image
-   }
+    class func imageWithColor(color: UIColor, size: CGSize) -> UIImage {
+        let rect: CGRect = CGRect(x: 0, y: 0, width: size.width, height: size.height)
+        UIGraphicsBeginImageContextWithOptions(size, false, 0)
+        color.setFill()
+        UIRectFill(rect)
+        let image: UIImage = UIGraphicsGetImageFromCurrentImageContext()!
+        UIGraphicsEndImageContext()
+        return image
+    }
     
     func resized(to size: CGSize) -> UIImage? {
         let renderer = UIGraphicsImageRenderer(size: size)

@@ -10,7 +10,7 @@ import FirebaseAuth
 import Firebase
 
 class registerVC: UIViewController {
-
+    
     @IBOutlet weak var emailTextfield: UITextField!
     @IBOutlet weak var passwordTextfield: UITextField!
     @IBOutlet weak var password2Textfield: UITextField!
@@ -19,7 +19,7 @@ class registerVC: UIViewController {
     @IBOutlet weak var alertLabel: UILabel!
     
     var user = User()
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -34,7 +34,7 @@ class registerVC: UIViewController {
     @objc func handleTap(){
         view.endEditing(true)
     }
-
+    
     @IBAction func returnLoginFunc(_ sender: Any) {
         performSegue(withIdentifier: "toLogin", sender: nil)
     }
@@ -51,6 +51,7 @@ class registerVC: UIViewController {
                     if error != nil
                     {
                         self.alertLabel.text = error!.localizedDescription
+                        self.alertLabel.isHidden = false
                     }
                     else{
                         self.user.userEmail = self.emailTextfield.text!
@@ -68,11 +69,12 @@ class registerVC: UIViewController {
             else
             {
                 self.alertLabel.text = "Girilen şifreler aynı değil"
-
+                self.alertLabel.isHidden = false
             }
         }
         else{
             self.alertLabel.text = "Lütfen ilgili alanları doldurunuz"
+            self.alertLabel.isHidden = false
         }
     }
     
@@ -107,7 +109,7 @@ class registerVC: UIViewController {
         imageView.image = image;
         let view = UIView(frame: CGRect(x: 0, y: 0, width: 40, height: 40))
         view.addSubview(imageView)
-
+        
         textField.leftView = view;
         textField.leftViewMode = .always
         textField.layer.cornerRadius = 20.0

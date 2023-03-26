@@ -10,7 +10,7 @@ import Firebase
 import FirebaseAuth
 
 class restartPasswordVC: UIViewController {
-
+    
     @IBOutlet weak var emailTextfield: UITextField!
     @IBOutlet weak var restartPasswordButton: UIButton!
     @IBOutlet weak var alertLabel: UILabel!
@@ -36,7 +36,7 @@ class restartPasswordVC: UIViewController {
     
     @IBAction func restartPasswordFunc(_ sender: Any) {
         alertLabel.isHidden = false
-
+        
         if emailTextfield.text != ""
         {
             Auth.auth().sendPasswordReset(withEmail: emailTextfield.text!)
@@ -51,7 +51,7 @@ class restartPasswordVC: UIViewController {
                     self.alertLabel.bounds.size.width += 10
                 }
             })
-
+            
             self.dismiss(animated: true)
         }
         else
@@ -79,7 +79,7 @@ class restartPasswordVC: UIViewController {
         imageView.image = image;
         let view = UIView(frame: CGRect(x: 0, y: 0, width: 40, height: 40))
         view.addSubview(imageView)
-
+        
         textField.leftView = view;
         textField.leftViewMode = .always
         textField.layer.cornerRadius = 20.0

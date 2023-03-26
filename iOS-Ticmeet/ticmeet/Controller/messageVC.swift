@@ -8,7 +8,7 @@
 import UIKit
 
 class messageVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
-
+    
     @IBOutlet weak var messageSearchBar: UISearchBar!
     @IBOutlet weak var tableView: UITableView!
     
@@ -16,25 +16,25 @@ class messageVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         tableView.delegate = self
         tableView.dataSource = self
         
-        messages.append(Message(message: "a", messageUserEmail: "ykpacs@gmail.com", messageUserName: "yakupacs", messageIsSeen: true, messageUserImage: UIImage(named: "yakup")!, messageTime: Date()))
-        messages.append(Message(message: "a", messageUserEmail: "ykpacs@gmail.com", messageUserName: "yakupacs", messageIsSeen: true, messageUserImage: UIImage(named: "yakup")!, messageTime: Date()))
-        messages.append(Message(message: "a", messageUserEmail: "ykpacs@gmail.com", messageUserName: "yakupacs", messageIsSeen: true, messageUserImage: UIImage(named: "yakup")!, messageTime: Date()))
-        messages.append(Message(message: "a", messageUserEmail: "ykpacs@gmail.com", messageUserName: "yakupacs", messageIsSeen: true, messageUserImage: UIImage(named: "yakup")!, messageTime: Date()))
-        messages.append(Message(message: "a", messageUserEmail: "ykpacs@gmail.com", messageUserName: "yakupacs", messageIsSeen: true, messageUserImage: UIImage(named: "yakup")!, messageTime: Date()))
+        messages.append(Message(message: "a", messageUserEmail: "ykpacs@gmail.com", messageUserName: "Yakup Açış", messageIsSeen: true, messageUserImage: UIImage(named: "yakup")!, messageTime: Date()))
+        messages.append(Message(message: "a", messageUserEmail: "ykpacs@gmail.com", messageUserName: "Yakup Açış", messageIsSeen: true, messageUserImage: UIImage(named: "yakup")!, messageTime: Date()))
+        messages.append(Message(message: "a", messageUserEmail: "ykpacs@gmail.com", messageUserName: "Yakup Açış", messageIsSeen: true, messageUserImage: UIImage(named: "yakup")!, messageTime: Date()))
+        messages.append(Message(message: "a", messageUserEmail: "ykpacs@gmail.com", messageUserName: "Yakup Açış", messageIsSeen: true, messageUserImage: UIImage(named: "yakup")!, messageTime: Date()))
+        messages.append(Message(message: "a", messageUserEmail: "ykpacs@gmail.com", messageUserName: "Yakup Açış", messageIsSeen: true, messageUserImage: UIImage(named: "yakup")!, messageTime: Date()))
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as? messageCell{
             cell.profileImage.image = messages[indexPath.row].messageUserImage
             cell.profileNameLabel.text = messages[indexPath.row].messageUserName
-//            cell.profileSeenDateLabel.text = messages[indexPath.row].messageTime
-//            cell.profileSeenTimeLabel.text = messages[indexPath.row].messageTime
+            //            cell.profileSeenDateLabel.text = messages[indexPath.row].messageTime
+            //            cell.profileSeenTimeLabel.text = messages[indexPath.row].messageTime
             cell.profileImage.layer.cornerRadius = 30
-
+            
             if messages[indexPath.row].messageIsSeen == false{
                 cell.profileImage.layer.borderColor = UIColor.blue.cgColor
                 cell.profileNameLabel.textColor = .blue
@@ -48,7 +48,7 @@ class messageVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
                 cell.profileImage.layer.borderColor = UIColor(named: NSDataAssetName(stringLiteral: "borderColor"))?.cgColor
                 cell.profileImage.layer.borderWidth = 2
             }
-
+            
             return cell
         }
         return UITableViewCell()
