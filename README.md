@@ -1,3 +1,45 @@
+# Classes
+
+## User
+```
+class User
+{
+    var userName : String?
+    var userEmail : String?
+    var userPassword : String?
+    var userImage : UIImage?
+    var userTopImage : UIImage?
+    var userAge : Int?
+    var userGender : String?
+    var userBio : String?
+    var userLocation : String?
+    var userFollowers : [String]?
+    var userFollowing : [String]?
+    var userRegisterDate : Date?
+    var userEventsID : [String]?
+}
+```
+
+## Event
+```
+class Event
+{
+    var eventID = String()
+    var eventCategory = String()
+    var eventName = String()
+    var eventSubscriber = Int()
+    var eventDetail = String()
+    var eventImage = String()
+    var eventLocation = String()
+    var eventLongitude = Double()
+    var eventLatitude = Double()
+    var eventComments = [String]()
+    var eventAttented = Int()
+    var eventUsersEmail = [String]()
+    var eventCurrentUserIsAttented = Bool()
+}
+```
+
 # Screens
 
 - Kayıt Ol
