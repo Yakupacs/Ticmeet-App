@@ -13,8 +13,8 @@ class User
     var userName : String?
     var userEmail : String?
     var userPassword : String?
-    var userImage : UIImage?
-    var userTopImage : UIImage?
+    var userImage : String?
+    var userTopImage : String?
     var userAge : Int?
     var userGender : String?
     var userBio : String?
@@ -24,7 +24,7 @@ class User
     var userRegisterDate : Date?
     var userEventsID : [String]?
     
-    init(userName: String? = nil, userEmail: String? = nil, userPassword: String? = nil, userImage: UIImage? = nil, userTopImage: UIImage? = nil, userAge: Int? = nil, userGender: String? = nil, userBio: String? = nil, userLocation: String? = nil, userFollowers: [String]? = nil, userFollowing: [String]? = nil, userRegisterDate: Date? = nil, userEventsID: [String]? = nil) {
+    init(userName: String? = nil, userEmail: String? = nil, userPassword: String? = nil, userImage: String? = nil, userTopImage: String? = nil, userAge: Int? = nil, userGender: String? = nil, userBio: String? = nil, userLocation: String? = nil, userFollowers: [String]? = nil, userFollowing: [String]? = nil, userRegisterDate: Date? = nil, userEventsID: [String]? = nil) {
         self.userName = userName
         self.userEmail = userEmail
         self.userPassword = userPassword

@@ -40,29 +40,15 @@ class eventsVC: UIViewController, UICollectionViewDelegate, UICollectionViewData
     
     var myUserEventsID = [String]()
     
+    // MARK: - viewDidLoad()
     override func viewDidLoad() {
         super.viewDidLoad()
         
         getFirestoreDataFirebase()
-        
-        konserCollectionView.delegate = self
-        konserCollectionView.dataSource = self
-        tiyatroCollectionView.delegate = self
-        tiyatroCollectionView.dataSource = self
-        sinemaCollectionView.delegate = self
-        sinemaCollectionView.dataSource = self
-        soylesiCollectionView.delegate = self
-        soylesiCollectionView.dataSource = self
-        sergiCollectionView.delegate = self
-        sergiCollectionView.dataSource = self
-        operaCollectionView.delegate = self
-        operaCollectionView.dataSource = self
-        performansCollectionView.delegate = self
-        performansCollectionView.dataSource = self
-        baleCollectionView.delegate = self
-        baleCollectionView.dataSource = self
+        collectionViewsSelfs()
     }
     
+    // MARK: - collectionView numberOfItemsInSection
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if collectionView == self.konserCollectionView{
             return konserEvents.count
@@ -90,6 +76,7 @@ class eventsVC: UIViewController, UICollectionViewDelegate, UICollectionViewData
         }
     }
     
+    // MARK: - collectionView cellForItemAt
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if collectionView == self.konserCollectionView{
             if let cell = konserCollectionView.dequeueReusableCell(withReuseIdentifier: "cellKonser", for: indexPath) as? konserCell{
@@ -246,6 +233,7 @@ class eventsVC: UIViewController, UICollectionViewDelegate, UICollectionViewData
         return UICollectionViewCell()
     }
     
+    // MARK: - collectionView didSelectItemAt
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if collectionView == self.baleCollectionView{
             selectedEvent = baleEvents[indexPath.row]
@@ -274,6 +262,7 @@ class eventsVC: UIViewController, UICollectionViewDelegate, UICollectionViewData
         performSegue(withIdentifier: "toDetail", sender: nil)
     }
     
+    // MARK: - addEventTiyatro
     @objc func addEventTiyatro(sender: UIButton){
         if tiyatroEvents[sender.tag].eventUsersEmail.contains(Auth.auth().currentUser?.email ?? "") {
             sender.alpha = 0
@@ -281,7 +270,8 @@ class eventsVC: UIViewController, UICollectionViewDelegate, UICollectionViewData
                 sender.setImage(UIImage(named: "plus50x50"), for: .normal)
                 sender.alpha = 1
             }
-            addEventUser(sender: sender, selectedEvent: tiyatroEvents)
+            removeEventUser(sender: sender, selectedEvent: tiyatroEvents)
+            removeUsersEventID(eventID: tiyatroEvents[sender.tag].eventID)
         }
         else{
             sender.alpha = 0
@@ -289,10 +279,12 @@ class eventsVC: UIViewController, UICollectionViewDelegate, UICollectionViewData
                 sender.setImage(UIImage(named: "checked50x50"), for: .normal)
                 sender.alpha = 1
             }
-            removeEventUser(sender: sender, selectedEvent: tiyatroEvents)
+            addEventUser(sender: sender, selectedEvent: tiyatroEvents)
+            addUsersEventID(eventID: tiyatroEvents[sender.tag].eventID)
         }
     }
     
+    // MARK: - addEventKonser
     @objc func addEventKonser(sender: UIButton){
         if konserEvents[sender.tag].eventUsersEmail.contains(Auth.auth().currentUser?.email ?? "") {
             sender.alpha = 0
@@ -300,7 +292,8 @@ class eventsVC: UIViewController, UICollectionViewDelegate, UICollectionViewData
                 sender.setImage(UIImage(named: "plus50x50"), for: .normal)
                 sender.alpha = 1
             }
-            addEventUser(sender: sender, selectedEvent: konserEvents)
+            removeEventUser(sender: sender, selectedEvent: konserEvents)
+            removeUsersEventID(eventID: konserEvents[sender.tag].eventID)
         }
         else{
             sender.alpha = 0
@@ -308,10 +301,12 @@ class eventsVC: UIViewController, UICollectionViewDelegate, UICollectionViewData
                 sender.setImage(UIImage(named: "checked50x50"), for: .normal)
                 sender.alpha = 1
             }
-            removeEventUser(sender: sender, selectedEvent: konserEvents)
+            addEventUser(sender: sender, selectedEvent: konserEvents)
+            addUsersEventID(eventID: konserEvents[sender.tag].eventID)
         }
     }
     
+    // MARK: - addEventOpera
     @objc func addEventOpera(sender: UIButton){
         if operaEvents[sender.tag].eventUsersEmail.contains(Auth.auth().currentUser?.email ?? "") {
             sender.alpha = 0
@@ -319,7 +314,9 @@ class eventsVC: UIViewController, UICollectionViewDelegate, UICollectionViewData
                 sender.setImage(UIImage(named: "plus50x50"), for: .normal)
                 sender.alpha = 1
             }
-            addEventUser(sender: sender, selectedEvent: operaEvents)
+            removeEventUser(sender: sender, selectedEvent: operaEvents)
+            removeUsersEventID(eventID: operaEvents[sender.tag].eventID)
+
         }
         else{
             sender.alpha = 0
@@ -327,10 +324,13 @@ class eventsVC: UIViewController, UICollectionViewDelegate, UICollectionViewData
                 sender.setImage(UIImage(named: "checked50x50"), for: .normal)
                 sender.alpha = 1
             }
-            removeEventUser(sender: sender, selectedEvent: operaEvents)
+            addEventUser(sender: sender, selectedEvent: operaEvents)
+            addUsersEventID(eventID: operaEvents[sender.tag].eventID)
+
         }
     }
     
+    // MARK: - addEventSoylesi
     @objc func addEventSoylesi(sender: UIButton){
         if soylesiEvents[sender.tag].eventUsersEmail.contains(Auth.auth().currentUser?.email ?? "") {
             sender.alpha = 0
@@ -338,7 +338,9 @@ class eventsVC: UIViewController, UICollectionViewDelegate, UICollectionViewData
                 sender.setImage(UIImage(named: "plus50x50"), for: .normal)
                 sender.alpha = 1
             }
-            addEventUser(sender: sender, selectedEvent: soylesiEvents)
+            removeEventUser(sender: sender, selectedEvent: soylesiEvents)
+            removeUsersEventID(eventID: soylesiEvents[sender.tag].eventID)
+
         }
         else{
             sender.alpha = 0
@@ -346,10 +348,13 @@ class eventsVC: UIViewController, UICollectionViewDelegate, UICollectionViewData
                 sender.setImage(UIImage(named: "checked50x50"), for: .normal)
                 sender.alpha = 1
             }
-            removeEventUser(sender: sender, selectedEvent: soylesiEvents)
+            addEventUser(sender: sender, selectedEvent: soylesiEvents)
+            addUsersEventID(eventID: soylesiEvents[sender.tag].eventID)
+
         }
     }
     
+    // MARK: - addEventSergi
     @objc func addEventSergi(sender: UIButton){
         if sergiEvents[sender.tag].eventUsersEmail.contains(Auth.auth().currentUser?.email ?? "") {
             sender.alpha = 0
@@ -357,7 +362,9 @@ class eventsVC: UIViewController, UICollectionViewDelegate, UICollectionViewData
                 sender.setImage(UIImage(named: "plus50x50"), for: .normal)
                 sender.alpha = 1
             }
-            addEventUser(sender: sender, selectedEvent: sergiEvents)
+            removeEventUser(sender: sender, selectedEvent: sergiEvents)
+            removeUsersEventID(eventID: sergiEvents[sender.tag].eventID)
+
         }
         else{
             sender.alpha = 0
@@ -365,10 +372,13 @@ class eventsVC: UIViewController, UICollectionViewDelegate, UICollectionViewData
                 sender.setImage(UIImage(named: "checked50x50"), for: .normal)
                 sender.alpha = 1
             }
-            removeEventUser(sender: sender, selectedEvent: sergiEvents)
+            addEventUser(sender: sender, selectedEvent: sergiEvents)
+            addUsersEventID(eventID: sergiEvents[sender.tag].eventID)
+
         }
     }
     
+    // MARK: - addEventSinema
     @objc func addEventSinema(sender: UIButton){
         if sinemaEvents[sender.tag].eventUsersEmail.contains(Auth.auth().currentUser?.email ?? "") {
             sender.alpha = 0
@@ -376,7 +386,9 @@ class eventsVC: UIViewController, UICollectionViewDelegate, UICollectionViewData
                 sender.setImage(UIImage(named: "plus50x50"), for: .normal)
                 sender.alpha = 1
             }
-            addEventUser(sender: sender, selectedEvent: sinemaEvents)
+            removeEventUser(sender: sender, selectedEvent: sinemaEvents)
+            removeUsersEventID(eventID: sinemaEvents[sender.tag].eventID)
+
         }
         else{
             sender.alpha = 0
@@ -384,10 +396,13 @@ class eventsVC: UIViewController, UICollectionViewDelegate, UICollectionViewData
                 sender.setImage(UIImage(named: "checked50x50"), for: .normal)
                 sender.alpha = 1
             }
-            removeEventUser(sender: sender, selectedEvent: sinemaEvents)
+            addEventUser(sender: sender, selectedEvent: sinemaEvents)
+            addUsersEventID(eventID: sinemaEvents[sender.tag].eventID)
+
         }
     }
     
+    // MARK: - addEventBale
     @objc func addEventBale(sender: UIButton){
         if baleEvents[sender.tag].eventUsersEmail.contains(Auth.auth().currentUser?.email ?? "") {
             sender.alpha = 0
@@ -395,7 +410,9 @@ class eventsVC: UIViewController, UICollectionViewDelegate, UICollectionViewData
                 sender.setImage(UIImage(named: "plus50x50"), for: .normal)
                 sender.alpha = 1
             }
-            addEventUser(sender: sender, selectedEvent: baleEvents)
+            removeEventUser(sender: sender, selectedEvent: baleEvents)
+            removeUsersEventID(eventID: baleEvents[sender.tag].eventID)
+
         }
         else{
             sender.alpha = 0
@@ -403,10 +420,13 @@ class eventsVC: UIViewController, UICollectionViewDelegate, UICollectionViewData
                 sender.setImage(UIImage(named: "checked50x50"), for: .normal)
                 sender.alpha = 1
             }
-            removeEventUser(sender: sender, selectedEvent: baleEvents)
+            addEventUser(sender: sender, selectedEvent: baleEvents)
+            addUsersEventID(eventID: baleEvents[sender.tag].eventID)
+
         }
     }
     
+    // MARK: - addEventPerformans
     @objc func addEventPerformans(sender: UIButton){
         if performansEvents[sender.tag].eventUsersEmail.contains(Auth.auth().currentUser?.email ?? "") {
             sender.alpha = 0
@@ -414,7 +434,9 @@ class eventsVC: UIViewController, UICollectionViewDelegate, UICollectionViewData
                 sender.setImage(UIImage(named: "plus50x50"), for: .normal)
                 sender.alpha = 1
             }
-            addEventUser(sender: sender, selectedEvent: performansEvents)
+            removeEventUser(sender: sender, selectedEvent: performansEvents)
+            removeUsersEventID(eventID: performansEvents[sender.tag].eventID)
+
         }
         else{
             sender.alpha = 0
@@ -422,10 +444,13 @@ class eventsVC: UIViewController, UICollectionViewDelegate, UICollectionViewData
                 sender.setImage(UIImage(named: "checked50x50"), for: .normal)
                 sender.alpha = 1
             }
-            removeEventUser(sender: sender, selectedEvent: performansEvents)
+            addEventUser(sender: sender, selectedEvent: performansEvents)
+            addUsersEventID(eventID: performansEvents[sender.tag].eventID)
+
         }
     }
     
+    // MARK: - prepare
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "toDetail"{
             let destVC = segue.destination as! eventDetailVC
@@ -433,6 +458,73 @@ class eventsVC: UIViewController, UICollectionViewDelegate, UICollectionViewData
         }
     }
     
+    // MARK: - addUsersEventID
+    func addUsersEventID(eventID: String){
+        guard let currentUserEmail = Auth.auth().currentUser?.email else { return }
+        
+        let db = Firestore.firestore()
+        let usersRef = db.collection("User")
+        
+        usersRef.getDocuments { (querySnapshot, error) in
+            if let error = error {
+                print("Error getting users: \(error)")
+            } else {
+                guard let querySnapshot = querySnapshot else { return }
+                for document in querySnapshot.documents {
+                    let userData = document.data()
+                    if let userEmail = userData["userEmail"] as? String, userEmail == currentUserEmail {
+                        var userEventsID = userData["userEventsID"] as? [String] ?? []
+                        userEventsID.append(eventID)
+                        
+                        let documentRef = usersRef.document(document.documentID)
+                        documentRef.updateData(["userEventsID": userEventsID]) { (error) in
+                            if let error = error {
+                                print("Error updating user data: \(error)")
+                            } else {
+                                print("Event added to user successfully")
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    // MARK: - removeUsersEventID
+    func removeUsersEventID(eventID: String){
+        guard let currentUserEmail = Auth.auth().currentUser?.email else { return }
+            
+            let db = Firestore.firestore()
+            let usersRef = db.collection("User")
+            
+            usersRef.getDocuments { (querySnapshot, error) in
+                if let error = error {
+                    print("Error getting users: \(error)")
+                } else {
+                    guard let querySnapshot = querySnapshot else { return }
+                    for document in querySnapshot.documents {
+                        let userData = document.data()
+                        if let userEmail = userData["userEmail"] as? String, userEmail == currentUserEmail {
+                            var userEventsID = userData["userEventsID"] as? [String] ?? []
+                            
+                            if let index = userEventsID.firstIndex(of: eventID) {
+                                userEventsID.remove(at: index)
+                                
+                                let documentRef = usersRef.document(document.documentID)
+                                documentRef.updateData(["userEventsID": userEventsID]) { (error) in
+                                    if let error = error {
+                                        print("Error updating user data: \(error)")
+                                    } else {
+                                        print("Event removed from user successfully")
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+    }
+    
+    // MARK: - getFirestroeDataFirebase
     func getFirestoreDataFirebase(){
         let fireStoreDatabase = Firestore.firestore()
         fireStoreDatabase.collection("Event").addSnapshotListener { snapshot, error in
@@ -457,6 +549,9 @@ class eventsVC: UIViewController, UICollectionViewDelegate, UICollectionViewData
                         
                         let oneEvent = Event()
                         
+                        if let eventID = document.get("eventID") as? String{
+                            oneEvent.eventID = eventID
+                        }
                         if let eventCategory = document.get("eventCategory") as? String{
                             oneEvent.eventCategory = eventCategory
                         }
@@ -527,7 +622,8 @@ class eventsVC: UIViewController, UICollectionViewDelegate, UICollectionViewData
         
     }
     
-    func addEventUser(sender: UIButton, selectedEvent: [Event]){
+    // MARK: - addEventUser
+    func removeEventUser(sender: UIButton, selectedEvent: [Event]){
         let firestoreDatabase = Firestore.firestore()
         
         firestoreDatabase.collection("Event")
@@ -567,7 +663,8 @@ class eventsVC: UIViewController, UICollectionViewDelegate, UICollectionViewData
             }
     }
     
-    func removeEventUser(sender: UIButton, selectedEvent: [Event]){
+    // MARK: - removeEventUser
+    func addEventUser(sender: UIButton, selectedEvent: [Event]){
         let firestoreDatabase = Firestore.firestore()
         
         firestoreDatabase.collection("Event")
@@ -604,5 +701,24 @@ class eventsVC: UIViewController, UICollectionViewDelegate, UICollectionViewData
                     }
                 }
             }
+    }
+    
+    func collectionViewsSelfs(){
+        konserCollectionView.delegate = self
+        konserCollectionView.dataSource = self
+        tiyatroCollectionView.delegate = self
+        tiyatroCollectionView.dataSource = self
+        sinemaCollectionView.delegate = self
+        sinemaCollectionView.dataSource = self
+        soylesiCollectionView.delegate = self
+        soylesiCollectionView.dataSource = self
+        sergiCollectionView.delegate = self
+        sergiCollectionView.dataSource = self
+        operaCollectionView.delegate = self
+        operaCollectionView.dataSource = self
+        performansCollectionView.delegate = self
+        performansCollectionView.dataSource = self
+        baleCollectionView.delegate = self
+        baleCollectionView.dataSource = self
     }
 }

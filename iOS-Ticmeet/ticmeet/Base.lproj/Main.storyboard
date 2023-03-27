@@ -397,7 +397,7 @@
                                 <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="userSelectImage" translatesAutoresizingMaskIntoConstraints="NO" id="J1Q-RS-0WF">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="userSelectImage" translatesAutoresizingMaskIntoConstraints="NO" id="J1Q-RS-0WF">
                                 <rect key="frame" x="105" y="118" width="180" height="180"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
@@ -1676,7 +1676,7 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" image="add32x32"/>
                                 <connections>
-                                    <action selector="backFunc:" destination="mIH-mJ-zM7" eventType="touchUpInside" id="paS-Ue-Xrs"/>
+                                    <action selector="addOrRemoveFunc:" destination="mIH-mJ-zM7" eventType="touchUpInside" id="DGH-99-dfo"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -1711,6 +1711,7 @@
                         <outlet property="eventNameLabel" destination="06p-VY-gh3" id="lSg-A6-WDp"/>
                         <outlet property="eventUsersView" destination="hAN-8o-JVh" id="xiR-Og-Fqj"/>
                         <outlet property="locationView" destination="wQU-eF-nl5" id="svZ-Gt-g5C"/>
+                        <outlet property="saveRemoveButton" destination="hX9-Ql-C7L" id="pT9-uR-oow"/>
                         <outlet property="usersCollectionView" destination="a4h-FL-kK5" id="KF8-0h-aEe"/>
                     </connections>
                 </viewController>
@@ -1893,7 +1894,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Kullanıcının Etkinlikleri" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="13" translatesAutoresizingMaskIntoConstraints="NO" id="sgf-8i-tDf">
                                 <rect key="frame" x="79" y="465" width="234" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="19"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -1944,11 +1945,12 @@
                         <outlet property="usernameLabel" destination="s8C-ys-kiH" id="OjF-IC-Zsi"/>
                         <segue destination="ix8-Rq-60c" kind="presentation" identifier="toChange" modalPresentationStyle="fullScreen" id="v6x-XY-KU6"/>
                         <segue destination="Lzn-0q-BSR" kind="presentation" identifier="toExit" modalPresentationStyle="fullScreen" id="3vO-HJ-WZ0"/>
+                        <segue destination="mIH-mJ-zM7" kind="presentation" identifier="toDetail" modalPresentationStyle="fullScreen" id="tfn-Xg-3F4"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZvB-8a-ICk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2873" y="660"/>
+            <point key="canvasLocation" x="2872.5190839694656" y="659.85915492957747"/>
         </scene>
         <!--Profile EditVC-->
         <scene sceneID="uvw-jb-BYt">
@@ -2448,6 +2450,7 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="plb-62-2ub"/>
+        <segue reference="tfn-Xg-3F4"/>
         <segue reference="3vO-HJ-WZ0"/>
     </inferredMetricsTieBreakers>
     <resources>

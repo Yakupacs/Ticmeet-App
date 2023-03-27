@@ -56,7 +56,7 @@ class registerVC: UIViewController {
                     else{
                         self.user.userEmail = self.emailTextfield.text!
                         self.user.userPassword = self.passwordTextfield.text!
-                        self.user.userImage = UIImage(named: "userSelectImage")
+                        self.user.userImage = "https://cdn-icons-png.flaticon.com/512/1077/1077114.png"
                         self.user.userFollowers = []
                         self.user.userFollowing = []
                         self.user.userName = "Unknown"

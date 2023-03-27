@@ -43,7 +43,7 @@ class registerNextVC: UIViewController, UIImagePickerControllerDelegate, UINavig
         print("Email: \(String(describing: user.userEmail))")
         print("Password: \(String(describing: user.userPassword))")
         
-        userImageView.layer.cornerRadius = 60
+        userImageView.layer.cornerRadius = 90
     }
     
     @IBAction func nextFunc(_ sender: Any) {
@@ -186,9 +186,9 @@ class registerNextVC: UIViewController, UIImagePickerControllerDelegate, UINavig
     func setAppearance()
     {
         textFieldLeftImage(imageName: "usernameIcon", textField: usernameTextfield)
-        textFieldLeftImage(imageName: "usernameIcon", textField: nameTextfield)
-        textFieldLeftImage(imageName: "usernameIcon", textField: bioTextfield)
-        textFieldLeftImage(imageName: "usernameIcon", textField: cityTextfield)
+        textFieldLeftImage(imageName: "nameIcon", textField: nameTextfield)
+        textFieldLeftImage(imageName: "detailIcon", textField: bioTextfield)
+        textFieldLeftImage(imageName: "locationIcon", textField: cityTextfield)
     }
     
     func textFieldLeftImage(imageName: String, textField: UITextField){
