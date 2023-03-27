@@ -3,10 +3,12 @@ package com.mtaner.android_ticmeet;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -20,6 +22,8 @@ public class ActivityGirisYap extends AppCompatActivity {
     private Button mLoginButton;
     private FirebaseAuth mAuth;
 
+    private TextView textViewKaydol;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,7 +33,17 @@ public class ActivityGirisYap extends AppCompatActivity {
 
         mEmailField = findViewById(R.id.editTextEmail2);
         mPasswordField = findViewById(R.id.editTextTextPassword);
-        mLoginButton = findViewById(R.id.btnGirisYap);
+        mLoginButton = findViewById(R.id.btnGiris);
+        textViewKaydol=findViewById(R.id.textViewKaydol);
+
+        textViewKaydol.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent= new Intent(ActivityGirisYap.this,ActivityKaydol.class);
+                startActivity(intent);
+            }
+        });
+
 
         mLoginButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -54,4 +68,7 @@ public class ActivityGirisYap extends AppCompatActivity {
                     }
                 });
     }
+
+
+
 }

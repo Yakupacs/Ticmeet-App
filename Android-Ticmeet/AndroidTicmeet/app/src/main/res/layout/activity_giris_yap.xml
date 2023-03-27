@@ -7,7 +7,7 @@
     tools:context=".ActivityGirisYap">
 
     <Button
-        android:id="@+id/btnGirisYap"
+        android:id="@+id/btnGiris"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginStart="30dp"
@@ -16,7 +16,7 @@
         android:backgroundTint="#238AFF"
         android:onClick="girisYap"
         android:text="GİRİŞ YAP"
-        app:layout_constraintBottom_toTopOf="@+id/textViewGirisYap"
+        app:layout_constraintBottom_toTopOf="@+id/textViewKaydol"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textViewSifremiUnuttum" />
@@ -49,6 +49,7 @@
         android:inputType="textEmailAddress"
         app:layout_constraintBottom_toTopOf="@+id/editTextTextPassword"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
@@ -63,9 +64,9 @@
         android:onClick="redirectSifremiSifirla"
         android:text="Şifremi unuttum"
         android:textColor="@android:color/black"
-        app:layout_constraintBottom_toTopOf="@+id/btnGirisYap"
+        app:layout_constraintBottom_toTopOf="@+id/btnGiris"
         app:layout_constraintEnd_toEndOf="@+id/editTextTextPassword"
-        app:layout_constraintStart_toStartOf="@+id/btnGirisYap"
+        app:layout_constraintStart_toStartOf="@+id/btnGiris"
         app:layout_constraintTop_toBottomOf="@+id/editTextTextPassword" />
 
     <TextView
@@ -76,13 +77,13 @@
         android:text="Hesabın yok mu?"
         android:textColor="@android:color/black"
         android:textSize="16sp"
-        app:layout_constraintEnd_toStartOf="@+id/textViewGirisYap"
+        app:layout_constraintEnd_toStartOf="@+id/textViewKaydol"
         app:layout_constraintHorizontal_chainStyle="packed"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/textViewGirisYap" />
+        app:layout_constraintTop_toTopOf="@+id/textViewKaydol" />
 
     <TextView
-        android:id="@+id/textViewGirisYap"
+        android:id="@+id/textViewKaydol"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="10dp"
@@ -95,7 +96,7 @@
         app:layout_constraintBottom_toTopOf="@+id/textViewVeya"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/textViewHesabinVarMi"
-        app:layout_constraintTop_toBottomOf="@+id/btnGirisYap" />
+        app:layout_constraintTop_toBottomOf="@+id/btnGiris" />
 
     <TextView
         android:id="@+id/textViewVeya"
@@ -106,7 +107,7 @@
         android:text="-----------VEYA-----------"
         app:layout_constraintBottom_toTopOf="@+id/textViewFacebookGiris"
         app:layout_constraintStart_toStartOf="@+id/textViewFacebookGiris"
-        app:layout_constraintTop_toBottomOf="@+id/textViewGirisYap" />
+        app:layout_constraintTop_toBottomOf="@+id/textViewKaydol" />
 
     <TextView
         android:id="@+id/textViewFacebookGiris"
