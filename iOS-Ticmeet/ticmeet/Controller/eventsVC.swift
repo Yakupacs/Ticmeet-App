@@ -564,7 +564,7 @@ class eventsVC: UIViewController, UICollectionViewDelegate, UICollectionViewData
                         if let eventName = document.get("eventName") as? String{
                             oneEvent.eventName = eventName
                         }
-                        if let eventDetail = document.get("eventDetail") as? String{
+                        if let eventDetail = document.get("eventDescription") as? String{
                             oneEvent.eventDetail = eventDetail
                         }
                         if let eventLatitude = document.get("eventLatitude") as? Double{
@@ -663,7 +663,7 @@ class eventsVC: UIViewController, UICollectionViewDelegate, UICollectionViewData
             }
     }
     
-    // MARK: - removeEventUser
+    // MARK: - addEventUser
     func addEventUser(sender: UIButton, selectedEvent: [Event]){
         let firestoreDatabase = Firestore.firestore()
         

@@ -15,6 +15,7 @@ class restartPasswordVC: UIViewController {
     @IBOutlet weak var restartPasswordButton: UIButton!
     @IBOutlet weak var alertLabel: UILabel!
     
+    var selectedUser = User()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -66,6 +67,7 @@ class restartPasswordVC: UIViewController {
             })
         }
     }
+
     
     func setAppearance()
     {

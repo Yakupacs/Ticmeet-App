@@ -11,6 +11,7 @@ import UIKit
 class User
 {
     var userName : String?
+    var userUsername : String?
     var userEmail : String?
     var userPassword : String?
     var userImage : String?
@@ -24,8 +25,9 @@ class User
     var userRegisterDate : Date?
     var userEventsID : [String]?
     
-    init(userName: String? = nil, userEmail: String? = nil, userPassword: String? = nil, userImage: String? = nil, userTopImage: String? = nil, userAge: Int? = nil, userGender: String? = nil, userBio: String? = nil, userLocation: String? = nil, userFollowers: [String]? = nil, userFollowing: [String]? = nil, userRegisterDate: Date? = nil, userEventsID: [String]? = nil) {
+    init(userName: String? = nil, userUsername: String? = nil, userEmail: String? = nil, userPassword: String? = nil, userImage: String? = nil, userTopImage: String? = nil, userAge: Int? = nil, userGender: String? = nil, userBio: String? = nil, userLocation: String? = nil, userFollowers: [String]? = nil, userFollowing: [String]? = nil, userRegisterDate: Date? = nil, userEventsID: [String]? = nil) {
         self.userName = userName
+        self.userUsername = userUsername
         self.userEmail = userEmail
         self.userPassword = userPassword
         self.userImage = userImage

@@ -8,8 +8,9 @@
 import UIKit
 import Firebase
 import SDWebImage
+import MapKit
 
-class eventDetailVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
+class eventDetailVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, MKMapViewDelegate {
     
     @IBOutlet weak var eventNameLabel: UILabel!
     @IBOutlet weak var usersCollectionView: UICollectionView!
@@ -23,6 +24,7 @@ class eventDetailVC: UIViewController, UICollectionViewDelegate, UICollectionVie
     @IBOutlet weak var locationView: UIView!
     @IBOutlet weak var detailView: UIView!
     @IBOutlet weak var eventUsersView: UIView!
+    @IBOutlet weak var mapView: MKMapView!
     
     var getEvent = Event()
     var eventUsers = [User]()
@@ -45,6 +47,23 @@ class eventDetailVC: UIViewController, UICollectionViewDelegate, UICollectionVie
             saveRemoveButton.setImage(UIImage(named: "add32x32"), for: .normal)
         }
         
+        addAnnotationMapView()
+    }
+    
+    func addAnnotationMapView(){
+        let location = CLLocationCoordinate2D(latitude: getEvent.eventLatitude, longitude: getEvent.eventLongitude)
+        
+        let span = MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01)
+        let region = MKCoordinateRegion(center: location, span: span)
+        
+        mapView.setRegion(region, animated: true)
+        
+        let annotation = MKPointAnnotation()
+        
+        annotation.coordinate = location
+        annotation.title = getEvent.eventLocation
+        
+        mapView.addAnnotation(annotation)
     }
     
     @IBAction func addOrRemoveFunc(_ sender: Any) {
@@ -78,6 +97,17 @@ class eventDetailVC: UIViewController, UICollectionViewDelegate, UICollectionVie
         return eventUsers.count
     }
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        performSegue(withIdentifier: "toUserDetail", sender: nil)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "toUserDetail"{
+            let destVC = segue.destination as! usersListVC
+            destVC.users = eventUsers
+        }
+    }
+    
     func getUsersEmail(){
         let emails = getEvent.eventUsersEmail
         
@@ -96,6 +126,7 @@ class eventDetailVC: UIViewController, UICollectionViewDelegate, UICollectionVie
                 
                 for document in snapshot.documents {
                     let usersEmails = document.get("userEmail") as? String
+                    let usersUsername = document.get("userUsername") as? String
                     let usersName = document.get("userName") as? String
                     let usersImage = document.get("userImage") as? String
                     let userTopImage = document.get("userTopImage") as? String
@@ -107,7 +138,7 @@ class eventDetailVC: UIViewController, UICollectionViewDelegate, UICollectionVie
                     let usersFollowing = document.get("userFollowing") as? [String]
                     let userEventsID = document.get("userEventsID") as? [String]
                     
-                    let user = User(userName: usersName, userEmail: usersEmails, userPassword: nil, userImage: usersImage, userTopImage: userTopImage, userAge: userAge, userGender: usersGender, userBio: usersBio, userLocation: usersLocation, userFollowers: usersFollowers, userFollowing: usersFollowing, userRegisterDate: nil, userEventsID: userEventsID)
+                    let user = User(userName: usersName,userUsername: usersUsername, userEmail: usersEmails, userPassword: nil, userImage: usersImage, userTopImage: userTopImage, userAge: userAge, userGender: usersGender, userBio: usersBio, userLocation: usersLocation, userFollowers: usersFollowers, userFollowing: usersFollowing, userRegisterDate: nil, userEventsID: userEventsID)
                     self.eventUsers.append(user)
                 }
                 
@@ -123,7 +154,6 @@ class eventDetailVC: UIViewController, UICollectionViewDelegate, UICollectionVie
         eventDetailLabel.text = getEvent.eventDetail
         eventAttentedLabel.text = "\(getEvent.eventAttented)"
         eventImageView.sd_setImage(with: URL(string: getEvent.eventImage))
-        eventDetailLabel.text = getEvent.eventDetail
         
         getUsersEmail()
         
@@ -131,6 +161,7 @@ class eventDetailVC: UIViewController, UICollectionViewDelegate, UICollectionVie
         attentedView.layer.cornerRadius = 15
         locationView.layer.cornerRadius = 15
         eventUsersView.layer.cornerRadius = 15
+        mapView.layer.cornerRadius = 20
     }
     
     @IBAction func backFunc(_ sender: Any) {
