@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    tools:context=".ActivityEtkinlikler"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/txtKatagori"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:text="Konser"
+        android:textSize="20dp"></TextView>
+
+    <ImageView
+        android:id="@+id/imageEvent"
+        android:layout_width="250dp"
+        android:layout_height="150dp">
+
+    </ImageView>
+
+
+
+
+
+
+
+</LinearLayout>
