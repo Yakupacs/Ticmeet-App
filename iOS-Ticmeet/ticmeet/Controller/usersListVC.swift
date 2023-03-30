@@ -22,6 +22,10 @@ class usersListVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
         tableView.dataSource = self
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        tableView.reloadData()
+    }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as? userListCell{
             
@@ -31,6 +35,8 @@ class usersListVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
             cell.userUsernameLabel.text = "@\(users[indexPath.row].userUsername!)"
             cell.userEventCountLabel.text = "\(users[indexPath.row].userEventsID!.count) etkinliğe katıldı."
             cell.userImageView.layer.cornerRadius = 35
+            cell.userImageView.layer.borderWidth = 2
+            cell.userImageView.layer.borderColor = UIColor.white.cgColor
             cell.userActionButton.addTarget(self, action: #selector(userAction), for: .touchUpInside)
             cell.userActionButton.tag = indexPath.row
             

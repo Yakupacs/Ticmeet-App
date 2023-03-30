@@ -9,9 +9,15 @@ import Foundation
 import UIKit
 
 class Comment{
-    var eventID : String?
+    var commentEventID : String?
     var comment : String?
     var commentUserName : String?
-    var commentUserImage : UIImage?
+    var commentUserUsername : String?
 
+    init(commentEventID: String? = nil, comment: String? = nil, commentUserName: String? = nil, commentUserUsername: String? = nil) {
+        self.commentEventID = commentEventID
+        self.comment = comment
+        self.commentUserName = commentUserName
+        self.commentUserUsername = commentUserUsername
+    }
 }

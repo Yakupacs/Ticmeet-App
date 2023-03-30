@@ -46,34 +46,37 @@ class userVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSo
     override func viewWillAppear(_ animated: Bool) {
         if gettingUser?.userEmail! == Auth.auth().currentUser?.email!{
             // Listeden kendi profiline tıklayıp girmiş.
+            print("Listeden kendi profiline tıklayıp girmiş.")
             messageButton.isHidden = true
             backButton.isHidden = false
             backButton.isEnabled = true
             logoutButton.isHidden = false
-            followOrSettingsButton.titleLabel?.text = "Düzenle"
+            followOrSettingsButton.setTitle("Düzenle", for: .normal)
             getData(userEmail: (Auth.auth().currentUser?.email)!)
         }
         else if gettingUser == nil{
             // Tabbardan kendi profiline tıklamış.
+            print("Tabbardan kendi profiline tıklamış.")
             messageButton.isHidden = true
             backButton.isHidden = true
             backButton.isEnabled = false
             logoutButton.isHidden = false
-            followOrSettingsButton.titleLabel?.text = "Düzenle"
+            followOrSettingsButton.setTitle("Düzenle", for: .normal)
             getData(userEmail: (Auth.auth().currentUser?.email)!)
         }
         else{
             // Listeden başkasının profiline tıklamış.
+            print("Listeden başkasının profiline tıklamış.")
             messageButton.isHidden = false
             backButton.isHidden = false
             backButton.isEnabled = true
             logoutButton.isHidden = true
             getData(userEmail: gettingUser!.userEmail!)
             if gettingUser?.userFollowers?.contains((Auth.auth().currentUser?.email)!) == true{
-                followOrSettingsButton.titleLabel?.text = "Takiptesin"
+                followOrSettingsButton.setTitle("Takiptesin", for: .normal)
             }
             else{
-                followOrSettingsButton.titleLabel?.text = "Takip et"
+                followOrSettingsButton.setTitle("Takip et", for: .normal)
             }
         }
         getEvents()
@@ -99,8 +102,34 @@ class userVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSo
         return events.count
     }
     
-    @IBAction func toChange(_ sender: Any) {
-        performSegue(withIdentifier: "toChange", sender: nil)
+    @IBAction func followOrProfileFunc(_ sender: Any) {
+        if followOrSettingsButton.titleLabel?.text == "Düzenle"{
+            // Profili düzenle
+            print("Profili düzenle")
+            performSegue(withIdentifier: "toChange", sender: nil)
+        }
+        else if followOrSettingsButton.titleLabel?.text == "Takip et"{
+            // Kullanıcıyı takip et
+            print("Kullanıcıyı takip et")
+            gettingUser!.userFollowers?.append((Auth.auth().currentUser?.email)!)
+            followUser(addUser: gettingUser!)
+            followOrSettingsButton.setTitle("Takiptesin", for: .normal)
+            
+            var count = Int(followersCountLabel.text!)!
+            count += 1
+            followersCountLabel.text = "\(count)"
+        }
+        else if followOrSettingsButton.titleLabel?.text == "Takiptesin"{
+            // Kullanıcıyı takipten bırak
+            print("Kullanıcıyı takipten bırak")
+            gettingUser!.userFollowers = gettingUser!.userFollowers!.filter { $0 != Auth.auth().currentUser?.email }
+            unfollowUser(selectedUser: gettingUser!)
+            followOrSettingsButton.setTitle("Takip et", for: .normal)
+            
+            var count = Int(followersCountLabel.text!)!
+            count -= 1
+            followersCountLabel.text = "\(count)"
+        }
     }
     
     @IBAction func backButton(_ sender: Any) {
@@ -111,6 +140,10 @@ class userVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSo
         if segue.identifier == "toDetail"{
             let destVC = segue.destination as! eventDetailVC
             destVC.getEvent = selectedEvent
+        }
+        else if segue.identifier == "toChange"{
+            let destVC = segue.destination as! profileEditVC
+            destVC.gettingUser = myUser
         }
     }
     
@@ -145,6 +178,14 @@ class userVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSo
                         self.gettingUser?.userBio = userBio
                         self.myUser.userBio = userBio
                     }
+                    if let userGender = document.get("userGender") as? String{
+                        self.gettingUser?.userGender = userGender
+                        self.myUser.userGender = userGender
+                    }
+                    if let userCity = document.get("userLocation") as? String{
+                        self.gettingUser?.userLocation = userCity
+                        self.myUser.userLocation = userCity
+                    }
                     if let userFollowers = document.get("userFollowers") as? [String]{
                         self.followersCountLabel.text = String(userFollowers.count)
                         self.gettingUser?.userFollowers = userFollowers
@@ -169,6 +210,10 @@ class userVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSo
                         self.myUser.userEventsID = userEventsID
                         self.gettingUser?.userEventsID = userEventsID
                         self.getEvents()
+                    }
+                    if let userAge = document.get("userAge") as? Int{
+                        self.myUser.userAge = userAge
+                        self.gettingUser?.userAge = userAge
                     }
                 }
                 self.userEventCollectionView.reloadData()
@@ -250,6 +295,146 @@ class userVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSo
             print(error.localizedDescription)
         }
     }
+    
+    func followUser(addUser: User){
+        let firestoreDatabase = Firestore.firestore()
+        
+        firestoreDatabase.collection("User")
+            .whereField("userEmail", isEqualTo: (Auth.auth().currentUser?.email)!)
+            .getDocuments { (querySnapshot, error) in
+                if let error = error {
+                    print("Veri alınamadı: \(error.localizedDescription)")
+                } else {
+                    guard let querySnapshot = querySnapshot else {
+                        print("Veri alınamadı: Snapshot yok")
+                        return
+                    }
+                    
+                    for document in querySnapshot.documents {
+                        var userFollowing = document.get("userFollowing") as? [String] ?? []
+                        
+                        if let currentUserEmail = addUser.userEmail {
+                            userFollowing.append(currentUserEmail)
+                        }
+                        
+                        // Firestore veri güncelleme işlemi
+                        firestoreDatabase.collection("User").document(document.documentID)
+                            .setData(["userFollowing": userFollowing], merge: true) { error in
+                                if let error = error {
+                                    print("Veri güncelleme işlemi başarısız: \(error.localizedDescription)")
+                                } else {
+                                    print("Veri güncelleme işlemi başarılı.")
+                                    self.getData(userEmail: (Auth.auth().currentUser?.email)!)
+                                }
+                            }
+                    }
+                }
+            }
+        
+        firestoreDatabase.collection("User").whereField("userEmail", isEqualTo: addUser.userEmail!).getDocuments { querySnapshot, error in
+            if let error = error {
+                print("Veri alınamadı: \(error.localizedDescription)")
+            }
+            else{
+                guard let querySnapshot = querySnapshot else{
+                    print("Veri alınamadı: Snapshot yok")
+                    return
+                }
+                
+                for document in querySnapshot.documents{
+                    var userFollowers = document.get("userFollowers") as? [String] ?? []
+                    
+                    // Güncelleme işlemini burada gerçekleştirin
+                    userFollowers.append((Auth.auth().currentUser?.email)!)
+                    
+                    // Firestore veri güncelleme işlemi
+                    firestoreDatabase.collection("User").document(document.documentID)
+                        .setData(["userFollowers": userFollowers], merge: true) { error in
+                            if let error = error {
+                                print("Veri güncelleme işlemi başarısız: \(error.localizedDescription)")
+                            } else {
+                                print("Veri güncelleme işlemi başarılı.")
+                                self.getData(userEmail: addUser.userEmail!)
+                            }
+                        }
+                }
+            }
+        }
+        
+    }
+    
+    func unfollowUser(selectedUser: User){
+        let firestoreDatabase = Firestore.firestore()
+        
+        firestoreDatabase.collection("User")
+            .whereField("userEmail", isEqualTo: (Auth.auth().currentUser?.email)!)
+            .getDocuments { (querySnapshot, error) in
+                if let error = error {
+                    print("Veri alınamadı: \(error.localizedDescription)")
+                } else {
+                    guard let querySnapshot = querySnapshot else {
+                        print("Veri alınamadı: Snapshot yok")
+                        return
+                    }
+                    
+                    for document in querySnapshot.documents {
+                        var userFollowing = document.get("userFollowing") as? [String] ?? []
+                        
+                        
+                        if let currentUserEmail = selectedUser.userEmail,
+                           let index = userFollowing.firstIndex(of: currentUserEmail) {
+                            userFollowing.remove(at: index)
+                        }
+                        
+                        // Firestore veri güncelleme işlemi
+                        firestoreDatabase.collection("User").document(document.documentID)
+                            .setData(["userFollowing": userFollowing], merge: true) { error in
+                                if let error = error {
+                                    print("Veri güncelleme işlemi başarısız: \(error.localizedDescription)")
+                                } else {
+                                    print("Veri güncelleme işlemi başarılı.")
+                                    self.getData(userEmail: (Auth.auth().currentUser?.email)!)
+                                }
+                            }
+                    }
+                }
+            }
+        
+        firestoreDatabase.collection("User")
+            .whereField("userEmail", isEqualTo: selectedUser.userEmail!)
+            .getDocuments { (querySnapshot, error) in
+                if let error = error {
+                    print("Veri alınamadı: \(error.localizedDescription)")
+                } else {
+                    guard let querySnapshot = querySnapshot else {
+                        print("Veri alınamadı: Snapshot yok")
+                        return
+                    }
+                    
+                    for document in querySnapshot.documents {
+                        var userFollowers = document.get("userFollowers") as? [String] ?? []
+                        
+                        
+                        if let currentUserEmail = Auth.auth().currentUser?.email!,
+                           let index = userFollowers.firstIndex(of: currentUserEmail) {
+                            userFollowers.remove(at: index)
+                        }
+                        
+                        // Firestore veri güncelleme işlemi
+                        firestoreDatabase.collection("User").document(document.documentID)
+                            .setData(["userFollowers": userFollowers], merge: true) { error in
+                                if let error = error {
+                                    print("Veri güncelleme işlemi başarısız: \(error.localizedDescription)")
+                                } else {
+                                    print("Veri güncelleme işlemi başarılı.")
+                                    self.getData(userEmail: selectedUser.userEmail!)
+                                }
+                            }
+                    }
+                }
+            }
+    }
+    
     func fixAppearance(){
         profileImageView.layer.cornerRadius = 45
         profileImageView.layer.borderWidth = 2

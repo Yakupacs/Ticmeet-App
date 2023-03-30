@@ -19,21 +19,26 @@ class eventDetailVC: UIViewController, UICollectionViewDelegate, UICollectionVie
     @IBOutlet weak var eventDetailLabel: UILabel!
     @IBOutlet weak var eventImageView: UIImageView!
     
+    @IBOutlet weak var commentButton: UIButton!
     @IBOutlet weak var saveRemoveButton: UIButton!
     @IBOutlet weak var attentedView: UIView!
     @IBOutlet weak var locationView: UIView!
     @IBOutlet weak var detailView: UIView!
     @IBOutlet weak var eventUsersView: UIView!
     @IBOutlet weak var mapView: MKMapView!
+    @IBOutlet weak var commentCollectionView: UICollectionView!
     
     var getEvent = Event()
     var eventUsers = [User]()
+    var comments = [Comment]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         usersCollectionView.delegate = self
         usersCollectionView.dataSource = self
+        commentCollectionView.delegate = self
+        commentCollectionView.dataSource = self
         
         setConfigure()
         
@@ -48,6 +53,40 @@ class eventDetailVC: UIViewController, UICollectionViewDelegate, UICollectionVie
         }
         
         addAnnotationMapView()
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        getEventComments()
+        canCommentCheck()
+    }
+    
+    func canCommentCheck(){
+        commentButton.isEnabled = true
+        let firestore = Firestore.firestore()
+        
+        firestore.collection("Comment").whereField("commentEventID", isEqualTo: getEvent.eventID).getDocuments { querySnapshot, error in
+            if let error = error{
+                print("Hata: \(error.localizedDescription)")
+            }
+            else{
+                guard let querySnapshot = querySnapshot else { return }
+                
+                for document in querySnapshot.documents{
+                                        
+                    if let commentEmail = document.get("commentEmail") as? String{
+                        
+                        if commentEmail == Auth.auth().currentUser?.email!{
+                            self.commentButton.isEnabled = false
+                        }
+                        
+                    }
+                    
+                }
+            }
+        }
+    }
+    
+    @IBAction func commentFunc(_ sender: Any) {
+        performSegue(withIdentifier: "toComment", sender: nil)
     }
     
     func addAnnotationMapView(){
@@ -82,29 +121,85 @@ class eventDetailVC: UIViewController, UICollectionViewDelegate, UICollectionVie
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as? eventUsersCell{
-            cell.userImageView.sd_setImage(with: URL(string: eventUsers[indexPath.row].userImage!))
-            cell.userImageView.layer.cornerRadius = 20
-            cell.userImageView.layer.borderWidth = 1
-            cell.userImageView.layer.borderColor = UIColor.black.cgColor
-            return cell
+        if collectionView == commentCollectionView{
+            if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cellComment", for: indexPath) as? commentCell{
+                cell.userUsernameLabel.text = "@\(comments[indexPath.row].commentUserUsername!)"
+                cell.userNameLabel.text = comments[indexPath.row].commentUserName
+                cell.userCommentLabel.text = comments[indexPath.row].comment
+                cell.layer.cornerRadius = 20
+                return cell
+            }
         }
+        else{
+            if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cellUser", for: indexPath) as? eventUsersCell{
+                cell.userImageView.sd_setImage(with: URL(string: eventUsers[indexPath.row].userImage!))
+                cell.userImageView.layer.cornerRadius = 20
+                cell.userImageView.layer.borderWidth = 1
+                cell.userImageView.layer.borderColor = UIColor.black.cgColor
+                return cell
+            }
+        }
+
         
         return UICollectionViewCell()
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return eventUsers.count
+        if collectionView == commentCollectionView{
+            return comments.count
+        }
+        else{
+            return eventUsers.count
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        performSegue(withIdentifier: "toUserDetail", sender: nil)
+        if collectionView == usersCollectionView{
+            performSegue(withIdentifier: "toUserDetail", sender: nil)
+        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "toUserDetail"{
             let destVC = segue.destination as! usersListVC
             destVC.users = eventUsers
+        }
+        else if segue.identifier == "toComment"{
+            let destVC = segue.destination as! commentVC
+            destVC.selectedEvent = getEvent
+        }
+    }
+    
+    func getEventComments(){
+        let firestore = Firestore.firestore()
+        
+        firestore.collection("Comment").getDocuments { querySnapshot, error in
+            if let error = error{
+                print("Hata: \(error.localizedDescription)")
+            }
+            else{
+                guard let querySnapshot = querySnapshot else { return }
+                
+                self.comments = []
+                
+                for document in querySnapshot.documents{
+                    if let commentEventID = document.get("commentEventID") as? String{
+                                                
+                        if commentEventID == self.getEvent.eventID{
+                                                        
+                            let comment = document.get("comment") as? String
+                            let commentUserName = document.get("commentUserName") as? String
+                            let commentUserUsername = document.get("commentUserUsername") as? String
+                                                        
+                            self.comments.append(Comment(comment: comment, commentUserName: commentUserName, commentUserUsername: commentUserUsername))
+                        }
+                        
+                    }
+
+                }
+                
+                self.commentCollectionView.reloadData()
+            }
         }
     }
     

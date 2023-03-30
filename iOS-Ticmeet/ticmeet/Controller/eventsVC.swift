@@ -604,7 +604,7 @@ class eventsVC: UIViewController, UICollectionViewDelegate, UICollectionViewData
                         else if oneEvent.eventCategory == "Performans"{
                             self.performansEvents.append(oneEvent)
                         }
-                        
+
                         self.allEvents.append(oneEvent)
                     }
                     

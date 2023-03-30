@@ -44,6 +44,14 @@ class registerNextVC: UIViewController, UIImagePickerControllerDelegate, UINavig
         print("Password: \(String(describing: user.userPassword))")
         
         userImageView.layer.cornerRadius = 90
+        
+        view.isUserInteractionEnabled = true
+        let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(keyboardDismiss))
+        view.addGestureRecognizer(gestureRecognizer)
+    }
+    
+    @objc func keyboardDismiss(){
+        view.endEditing(true)
     }
     
     @IBAction func nextFunc(_ sender: Any) {
@@ -78,8 +86,7 @@ class registerNextVC: UIViewController, UIImagePickerControllerDelegate, UINavig
                             
                             var firestoreReference : DocumentReference? = nil
                             
-                            let firestorePost = ["userID" : UUID().uuidString,
-                                                 "userEmail" : self.user.userEmail!,
+                            let firestorePost = ["userEmail" : self.user.userEmail!,
                                                  "userName" : self.nameTextfield.text!,
                                                  "userImage" : imageUrl!,
                                                  "userAge" : self.user.userAge!,

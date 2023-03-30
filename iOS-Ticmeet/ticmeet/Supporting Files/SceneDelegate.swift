@@ -21,9 +21,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         // MARK: - Giriş yapan kişiyi içerde tutmayı sağlıyoruz.
         let currentUser = Auth.auth().currentUser
-        
-        print("currentUser?.displayName: \(String(describing: currentUser?.displayName))\ncurrentUser?.email: \(String(describing: currentUser?.email))\ncurrentUser?.phoneNumber: \(String(describing: currentUser?.phoneNumber))")
-        
+                
         if currentUser != nil{
             let board = UIStoryboard(name: "Main", bundle: nil)
             let tabBar = board.instantiateViewController(withIdentifier: "tabBar") as? UITabBarController
