@@ -20,6 +20,7 @@ public class ActivityGirisYap extends AppCompatActivity {
     private EditText mEmailField;
     private EditText mPasswordField;
     private Button mLoginButton;
+    private TextView textSifremiUnuttum;
     private FirebaseAuth mAuth;
 
     private TextView textViewKaydol;
@@ -35,6 +36,7 @@ public class ActivityGirisYap extends AppCompatActivity {
         mPasswordField = findViewById(R.id.editTextTextPassword);
         mLoginButton = findViewById(R.id.btnGiris);
         textViewKaydol=findViewById(R.id.textViewKaydol);
+        textSifremiUnuttum=findViewById(R.id.textViewSifremiUnuttum);
 
         textViewKaydol.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -53,7 +55,19 @@ public class ActivityGirisYap extends AppCompatActivity {
                 signIn(email, password);
             }
         });
+
+        textSifremiUnuttum.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent =new Intent(ActivityGirisYap.this,ActivitySifremiSifirla.class );
+                startActivity(intent);
+
+            }
+        });
+
     }
+
+
 
     private void signIn(String email, String password) {
         mAuth.signInWithEmailAndPassword(email, password)

@@ -8,53 +8,36 @@
 
     <Button
         android:id="@+id/btnIlerle"
-        android:layout_width="352dp"
-        android:layout_height="49dp"
-        android:layout_marginStart="31dp"
-        android:layout_marginEnd="31dp"
-        android:layout_marginBottom="16dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="29dp"
+        android:layout_marginEnd="29dp"
         android:backgroundTint="#238AFF"
         android:onClick="redirectProfil"
         android:text="İlerle"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextCinsiyet" />
-
-    <ImageView
-        android:id="@+id/imageViewProfilResmi"
-        android:layout_width="186dp"
-        android:layout_height="181dp"
-        android:layout_marginBottom="36dp"
-        android:clickable="true"
-        android:onClick="profilResmiSec"
-        app:layout_constraintBottom_toTopOf="@+id/editTextAdVeSoyad"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewKaydiTamamla"
-        tools:srcCompat="@drawable/emptypic" />
 
     <TextView
         android:id="@+id/textViewKaydiTamamla"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="31dp"
-        android:layout_marginBottom="19dp"
+        android:layout_marginBottom="25dp"
         android:text="Kaydı Tamamla"
         android:textColor="@android:color/black"
         android:textSize="24sp"
-        app:layout_constraintBottom_toTopOf="@+id/imageViewProfilResmi"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/imageViewP"
+        app:layout_constraintEnd_toEndOf="@+id/imageViewP"
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/editTextAdVeSoyad"
-        android:layout_width="389dp"
-        android:layout_height="44dp"
-        android:layout_marginStart="13dp"
-        android:layout_marginEnd="13dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="11dp"
+        android:layout_marginEnd="11dp"
         android:background="@null"
         android:ems="10"
         android:hint="Ad ve Soyad"
@@ -62,14 +45,14 @@
         app:layout_constraintBottom_toTopOf="@+id/editTextBiyografi"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageViewProfilResmi" />
+        app:layout_constraintTop_toBottomOf="@+id/imageViewP" />
 
     <EditText
         android:id="@+id/editTextBiyografi"
-        android:layout_width="389dp"
-        android:layout_height="44dp"
-        android:layout_marginStart="13dp"
-        android:layout_marginEnd="13dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="11dp"
+        android:layout_marginEnd="11dp"
         android:background="@null"
         android:ems="10"
         android:hint="Biyografi (İsteğe Bağlı)"
@@ -81,8 +64,8 @@
 
     <EditText
         android:id="@+id/editTextYasadiginizIl"
-        android:layout_width="378dp"
-        android:layout_height="45dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:layout_marginStart="13dp"
         android:layout_marginEnd="13dp"
         android:layout_marginBottom="40dp"
@@ -92,14 +75,13 @@
         android:inputType="textPersonName"
         app:layout_constraintBottom_toTopOf="@+id/editTextYas"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextBiyografi" />
 
     <EditText
         android:id="@+id/editTextCinsiyet"
-        android:layout_width="108dp"
-        android:layout_height="57dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:layout_marginStart="16dp"
         android:layout_marginBottom="144dp"
         android:background="@null"
@@ -107,20 +89,32 @@
         android:hint="Cinsiyet:"
         android:inputType="textPersonName"
         app:layout_constraintBottom_toTopOf="@+id/btnIlerle"
+        app:layout_constraintEnd_toEndOf="@+id/editTextYas"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextYas" />
 
     <EditText
         android:id="@+id/editTextYas"
         android:layout_width="107dp"
-        android:layout_height="65dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="17dp"
         android:background="@null"
         android:ems="10"
         android:hint="Yaş:"
         android:inputType="textPersonName"
         app:layout_constraintBottom_toTopOf="@+id/editTextCinsiyet"
-        app:layout_constraintEnd_toEndOf="@+id/editTextCinsiyet"
-        app:layout_constraintStart_toStartOf="@+id/editTextCinsiyet"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextYasadiginizIl" />
+
+    <ImageView
+        android:id="@+id/imageViewP"
+        android:layout_width="177dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="58dp"
+        app:layout_constraintBottom_toTopOf="@+id/editTextAdVeSoyad"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewKaydiTamamla"
+        app:srcCompat="@drawable/emptypic" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
