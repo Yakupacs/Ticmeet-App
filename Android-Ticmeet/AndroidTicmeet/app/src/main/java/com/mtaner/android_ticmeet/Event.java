@@ -53,5 +53,13 @@ public class Event {
     public void setLocation(String location) {
         this.location = location;
     }
+
+    public String getEventImage() {
+        return eventImage;
+    }
+
+    public void setEventImage(String eventImage) {
+        this.eventImage = eventImage;
+    }
 }
 
