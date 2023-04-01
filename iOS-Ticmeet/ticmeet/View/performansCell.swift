@@ -7,7 +7,7 @@
 
 import UIKit
 
-class peformansCell: UICollectionViewCell {
+class performansCell: UICollectionViewCell {
     
     @IBOutlet weak var eventUserCountLabel: UILabel!
     @IBOutlet weak var eventImageView: UIImageView!

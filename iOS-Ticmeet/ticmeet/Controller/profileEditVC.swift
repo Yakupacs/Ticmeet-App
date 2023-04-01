@@ -11,6 +11,7 @@ import FirebaseStorage
 
 class profileEditVC: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate  {
     
+    @IBOutlet weak var backButton: UIButton!
     @IBOutlet weak var saveButton: UIButton!
     @IBOutlet weak var topImageView: UIImageView!
     @IBOutlet weak var profileImageView: UIImageView!
@@ -22,6 +23,7 @@ class profileEditVC: UIViewController, UIImagePickerControllerDelegate, UINaviga
     @IBOutlet weak var bioTextfield: UITextField!
     @IBOutlet weak var cityTextfield: UITextField!
     @IBOutlet weak var usernameTextfield: UITextField!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     var gettingUser = User()
     var saveDataUser = User()
@@ -77,6 +79,9 @@ class profileEditVC: UIViewController, UIImagePickerControllerDelegate, UINaviga
             print("Hata")
         }
         else{
+            activityIndicator.isHidden = false
+            backButton.isEnabled = false
+            saveButton.isEnabled = false
             let firestore = Firestore.firestore()
             
             firestore.collection("User").whereField("userEmail", isEqualTo: (Auth.auth().currentUser?.email)!).getDocuments { querySnapshot, error in
@@ -97,9 +102,10 @@ class profileEditVC: UIViewController, UIImagePickerControllerDelegate, UINaviga
                         
                         if let data = self.topImageView.image?.jpegData(compressionQuality: 0.5), let data2 = self.profileImageView.image?.jpegData(compressionQuality: 0.5){
                             let uuid = UUID().uuidString
+                            let uuid2 = UUID().uuidString
                             
                             let imageReference = mediaFolder.child("\(uuid).jpg")
-                            let imageReference2 = mediaFolder.child("\(uuid).jpg")
+                            let imageReference2 = mediaFolder.child("\(uuid2).jpg")
                             
                             imageReference.putData(data, metadata: nil) { metadata, error in
                                 if error != nil{
@@ -131,12 +137,18 @@ class profileEditVC: UIViewController, UIImagePickerControllerDelegate, UINaviga
                                                                                     "userLocation": self.cityTextfield.text!,
                                                                                     "userUsername": self.usernameTextfield.text!,
                                                                                     "userName": self.nameTextfield.text!,
-                                                                                    "userImage": imageUrl!,
-                                                                                    "userTopImage": imageUrl2!]) { error in
+                                                                                    "userImage": imageUrl2!,
+                                                                                    "userTopImage": imageUrl!]) { error in
                                                                 if let error = error {
                                                                     print("Hata: \(error)")
                                                                 } else {
+                                                                    self.activityIndicator.isHidden = true
+                                                                    
+                                                                    self.backButton.isEnabled = true
+                                                                    self.saveButton.isEnabled = true
+
                                                                     print("Veriler başarıyla güncellendi")
+                                                                    
                                                                     self.dismiss(animated: true)
                                                                 }
                                                             }
@@ -160,6 +172,8 @@ class profileEditVC: UIViewController, UIImagePickerControllerDelegate, UINaviga
                 }
             }
         }
+        backButton.isEnabled = true
+        saveButton.isEnabled = true
     }
     
     

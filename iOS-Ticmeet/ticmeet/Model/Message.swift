@@ -16,6 +16,7 @@ class Message{
     var messageUserImage = UIImage()
     var messageTime = Date()
     
+
     init(message: String = String(), messageUserEmail: String = String(), messageUserName: String = String(), messageIsSeen: Bool = Bool(), messageUserImage: UIImage = UIImage(), messageTime: Date = Date()) {
         self.message = message
         self.messageUserEmail = messageUserEmail

@@ -27,12 +27,8 @@ class userVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSo
     @IBOutlet weak var userEventCollectionView: UICollectionView!
     @IBOutlet weak var backButton: UIButton!
     
-    var myUser = User()
-    
     var gettingUser : User?
-    
     var events = [Event]()
-    
     var selectedEvent = Event()
     
     override func viewDidLoad() {
@@ -114,6 +110,7 @@ class userVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSo
             gettingUser!.userFollowers?.append((Auth.auth().currentUser?.email)!)
             followUser(addUser: gettingUser!)
             followOrSettingsButton.setTitle("Takiptesin", for: .normal)
+            getData(userEmail: gettingUser!.userEmail!)
             
             var count = Int(followersCountLabel.text!)!
             count += 1
@@ -125,7 +122,8 @@ class userVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSo
             gettingUser!.userFollowers = gettingUser!.userFollowers!.filter { $0 != Auth.auth().currentUser?.email }
             unfollowUser(selectedUser: gettingUser!)
             followOrSettingsButton.setTitle("Takip et", for: .normal)
-            
+            getData(userEmail: gettingUser!.userEmail!)
+
             var count = Int(followersCountLabel.text!)!
             count -= 1
             followersCountLabel.text = "\(count)"
@@ -136,6 +134,10 @@ class userVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSo
         self.dismiss(animated: true)
     }
     
+    @IBAction func messageFunc(_ sender: Any) {
+        performSegue(withIdentifier: "toMessage", sender: nil)
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "toDetail"{
             let destVC = segue.destination as! eventDetailVC
@@ -143,7 +145,11 @@ class userVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSo
         }
         else if segue.identifier == "toChange"{
             let destVC = segue.destination as! profileEditVC
-            destVC.gettingUser = myUser
+            destVC.gettingUser = gettingUser!
+        }
+        else if segue.identifier == "toMessage"{
+            let destVC = segue.destination as! messageVC
+            destVC.otherUser = gettingUser!
         }
     }
     
@@ -166,53 +172,43 @@ class userVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSo
                         self.nameTopLabel.text = userName
                         self.nameProfileLabel.text = userName
                         self.gettingUser?.userName = userName
-                        self.myUser.userName = userName
                     }
                     if let userUsername = document.get("userUsername") as? String{
                         self.usernameLabel.text = "@\(userUsername)"
                         self.gettingUser?.userUsername = userUsername
-                        self.myUser.userUsername = userUsername
                     }
                     if let userBio = document.get("userBio") as? String{
                         self.bioLabel.text = userBio
                         self.gettingUser?.userBio = userBio
-                        self.myUser.userBio = userBio
                     }
                     if let userGender = document.get("userGender") as? String{
                         self.gettingUser?.userGender = userGender
-                        self.myUser.userGender = userGender
                     }
                     if let userCity = document.get("userLocation") as? String{
                         self.gettingUser?.userLocation = userCity
-                        self.myUser.userLocation = userCity
                     }
                     if let userFollowers = document.get("userFollowers") as? [String]{
                         self.followersCountLabel.text = String(userFollowers.count)
                         self.gettingUser?.userFollowers = userFollowers
-                        self.myUser.userFollowers = userFollowers
                     }
                     if let userFollowing = document.get("userFollowing") as? [String]{
                         self.followingCountLabel.text = String(userFollowing.count)
                         self.gettingUser?.userFollowing = userFollowing
-                        self.myUser.userFollowing = userFollowing
                     }
                     if let userImage = document.get("userImage") as? String{
                         self.profileImageView.sd_setImage(with: URL(string: userImage))
                         self.gettingUser?.userImage = userImage
-                        self.myUser.userImage = userImage
                     }
                     if let userTopImage = document.get("userTopImage") as? String{
                         self.topImageView.sd_setImage(with: URL(string: userTopImage))
                         self.gettingUser?.userTopImage = userTopImage
-                        self.myUser.userTopImage = userTopImage
                     }
                     if let userEventsID = document.get("userEventsID") as? [String]{
-                        self.myUser.userEventsID = userEventsID
                         self.gettingUser?.userEventsID = userEventsID
+                        self.attentedEventCountLabel.text = "\(userEventsID.count)"
                         self.getEvents()
                     }
                     if let userAge = document.get("userAge") as? Int{
-                        self.myUser.userAge = userAge
                         self.gettingUser?.userAge = userAge
                     }
                 }
@@ -237,11 +233,11 @@ class userVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSo
                         
                         if let eventID = document.get("eventID") as? String{
 
-                            if self.myUser.userEventsID == nil{
+                            if self.gettingUser?.userEventsID == nil{
                                 return
                             }
                             
-                            for u in self.myUser.userEventsID!{
+                            for u in self.gettingUser!.userEventsID!{
                                 if u == eventID{
                                     let oneEvent = Event()
                                     
@@ -324,7 +320,6 @@ class userVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSo
                                     print("Veri güncelleme işlemi başarısız: \(error.localizedDescription)")
                                 } else {
                                     print("Veri güncelleme işlemi başarılı.")
-                                    self.getData(userEmail: (Auth.auth().currentUser?.email)!)
                                 }
                             }
                     }
@@ -354,7 +349,6 @@ class userVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSo
                                 print("Veri güncelleme işlemi başarısız: \(error.localizedDescription)")
                             } else {
                                 print("Veri güncelleme işlemi başarılı.")
-                                self.getData(userEmail: addUser.userEmail!)
                             }
                         }
                 }
@@ -393,7 +387,6 @@ class userVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSo
                                     print("Veri güncelleme işlemi başarısız: \(error.localizedDescription)")
                                 } else {
                                     print("Veri güncelleme işlemi başarılı.")
-                                    self.getData(userEmail: (Auth.auth().currentUser?.email)!)
                                 }
                             }
                     }
@@ -427,7 +420,6 @@ class userVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSo
                                     print("Veri güncelleme işlemi başarısız: \(error.localizedDescription)")
                                 } else {
                                     print("Veri güncelleme işlemi başarılı.")
-                                    self.getData(userEmail: selectedUser.userEmail!)
                                 }
                             }
                     }

@@ -193,7 +193,7 @@ class eventsVC: UIViewController, UICollectionViewDelegate, UICollectionViewData
             }
         }
         else if collectionView == self.performansCollectionView{
-            if let cell = performansCollectionView.dequeueReusableCell(withReuseIdentifier: "cellPerformans", for: indexPath) as? peformansCell{
+            if let cell = performansCollectionView.dequeueReusableCell(withReuseIdentifier: "cellPerformans", for: indexPath) as? performansCell{
                 
                 if performansEvents[indexPath.row].eventUsersEmail.contains(Auth.auth().currentUser?.email ?? "") {
                     cell.addButton.setImage(UIImage(named: "checked50x50"), for: .normal)
@@ -622,7 +622,7 @@ class eventsVC: UIViewController, UICollectionViewDelegate, UICollectionViewData
         
     }
     
-    // MARK: - addEventUser
+    // MARK: - removeEventUser
     func removeEventUser(sender: UIButton, selectedEvent: [Event]){
         let firestoreDatabase = Firestore.firestore()
         

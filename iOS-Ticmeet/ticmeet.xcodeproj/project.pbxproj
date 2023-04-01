@@ -42,7 +42,7 @@
 		DA85B9F229D46931003C4A9F /* messageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA85B9F129D46931003C4A9F /* messageVC.swift */; };
 		DA90346929CDE97100C8EEAB /* tiyatroCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA90346829CDE97100C8EEAB /* tiyatroCell.swift */; };
 		DA90346B29CDE97B00C8EEAB /* soylesiCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA90346A29CDE97B00C8EEAB /* soylesiCell.swift */; };
-		DA90346D29CDE98500C8EEAB /* peformansCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA90346C29CDE98500C8EEAB /* peformansCell.swift */; };
+		DA90346D29CDE98500C8EEAB /* performansCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA90346C29CDE98500C8EEAB /* performansCell.swift */; };
 		DA90346F29CDE99000C8EEAB /* baleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA90346E29CDE99000C8EEAB /* baleCell.swift */; };
 		DA90347129CDE99C00C8EEAB /* sinemaCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA90347029CDE99C00C8EEAB /* sinemaCell.swift */; };
 		DA90347329CDE9C700C8EEAB /* operaCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA90347229CDE9C700C8EEAB /* operaCell.swift */; };
@@ -54,6 +54,8 @@
 		DAC47FB729CA58210094A377 /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC47FB629CA58210094A377 /* Comment.swift */; };
 		DAD5BB6029D3387500771BFD /* commentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD5BB5F29D3387500771BFD /* commentCell.swift */; };
 		DADCD85D29C89BEA005C1B5E /* konserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DADCD85C29C89BEA005C1B5E /* konserCell.swift */; };
+		DADD13D729D7CDA300823FA0 /* messageSendListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DADD13D629D7CDA300823FA0 /* messageSendListCell.swift */; };
+		DADD13D929D7CDE100823FA0 /* messageSendListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DADD13D829D7CDE100823FA0 /* messageSendListVC.swift */; };
 		DADD502A29CB41DB003B1EE3 /* registerNextVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DADD502929CB41DB003B1EE3 /* registerNextVC.swift */; };
 		DADD502C29CBBFA2003B1EE3 /* eventDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DADD502B29CBBFA2003B1EE3 /* eventDetailVC.swift */; };
 		DAE71C9A29CD219600CB7783 /* userEventsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE71C9929CD219600CB7783 /* userEventsCell.swift */; };
@@ -87,7 +89,7 @@
 		DA85B9F129D46931003C4A9F /* messageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = messageVC.swift; sourceTree = "<group>"; };
 		DA90346829CDE97100C8EEAB /* tiyatroCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tiyatroCell.swift; sourceTree = "<group>"; };
 		DA90346A29CDE97B00C8EEAB /* soylesiCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = soylesiCell.swift; sourceTree = "<group>"; };
-		DA90346C29CDE98500C8EEAB /* peformansCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = peformansCell.swift; sourceTree = "<group>"; };
+		DA90346C29CDE98500C8EEAB /* performansCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = performansCell.swift; sourceTree = "<group>"; };
 		DA90346E29CDE99000C8EEAB /* baleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = baleCell.swift; sourceTree = "<group>"; };
 		DA90347029CDE99C00C8EEAB /* sinemaCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sinemaCell.swift; sourceTree = "<group>"; };
 		DA90347229CDE9C700C8EEAB /* operaCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = operaCell.swift; sourceTree = "<group>"; };
@@ -99,6 +101,8 @@
 		DAC47FB629CA58210094A377 /* Comment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
 		DAD5BB5F29D3387500771BFD /* commentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = commentCell.swift; sourceTree = "<group>"; };
 		DADCD85C29C89BEA005C1B5E /* konserCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = konserCell.swift; sourceTree = "<group>"; };
+		DADD13D629D7CDA300823FA0 /* messageSendListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = messageSendListCell.swift; sourceTree = "<group>"; };
+		DADD13D829D7CDE100823FA0 /* messageSendListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = messageSendListVC.swift; sourceTree = "<group>"; };
 		DADD502929CB41DB003B1EE3 /* registerNextVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = registerNextVC.swift; sourceTree = "<group>"; };
 		DADD502B29CBBFA2003B1EE3 /* eventDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = eventDetailVC.swift; sourceTree = "<group>"; };
 		DAE71C9929CD219600CB7783 /* userEventsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = userEventsCell.swift; sourceTree = "<group>"; };
@@ -197,13 +201,14 @@
 				DAE71C9929CD219600CB7783 /* userEventsCell.swift */,
 				DA90346829CDE97100C8EEAB /* tiyatroCell.swift */,
 				DA90346A29CDE97B00C8EEAB /* soylesiCell.swift */,
-				DA90346C29CDE98500C8EEAB /* peformansCell.swift */,
+				DA90346C29CDE98500C8EEAB /* performansCell.swift */,
 				DA90346E29CDE99000C8EEAB /* baleCell.swift */,
 				DA90347029CDE99C00C8EEAB /* sinemaCell.swift */,
 				DA90347229CDE9C700C8EEAB /* operaCell.swift */,
 				DA90347429CDE9CF00C8EEAB /* sergiCell.swift */,
 				DA7B7FA529D21EB600E46756 /* userListCell.swift */,
 				DAD5BB5F29D3387500771BFD /* commentCell.swift */,
+				DADD13D629D7CDA300823FA0 /* messageSendListCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -223,6 +228,7 @@
 				DA7B7FA329D21E8D00E46756 /* usersListVC.swift */,
 				DAA7C43929D3913400D10C0A /* commentVC.swift */,
 				DA85B9F129D46931003C4A9F /* messageVC.swift */,
+				DADD13D829D7CDE100823FA0 /* messageSendListVC.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -389,7 +395,9 @@
 				DA3D3CA529C7642E005EFCB1 /* userVC.swift in Sources */,
 				DADD502C29CBBFA2003B1EE3 /* eventDetailVC.swift in Sources */,
 				DADCD85D29C89BEA005C1B5E /* konserCell.swift in Sources */,
+				DADD13D729D7CDA300823FA0 /* messageSendListCell.swift in Sources */,
 				DA90347129CDE99C00C8EEAB /* sinemaCell.swift in Sources */,
+				DADD13D929D7CDE100823FA0 /* messageSendListVC.swift in Sources */,
 				DAD5BB6029D3387500771BFD /* commentCell.swift in Sources */,
 				DA96ABAA29C5371500A18605 /* restartPasswordVC.swift in Sources */,
 				DADD502A29CB41DB003B1EE3 /* registerNextVC.swift in Sources */,
@@ -402,7 +410,7 @@
 				DA90346B29CDE97B00C8EEAB /* soylesiCell.swift in Sources */,
 				DA3D3CA329C76421005EFCB1 /* messagesVC.swift in Sources */,
 				DA85B9F229D46931003C4A9F /* messageVC.swift in Sources */,
-				DA90346D29CDE98500C8EEAB /* peformansCell.swift in Sources */,
+				DA90346D29CDE98500C8EEAB /* performansCell.swift in Sources */,
 				DA28A01329B408DB00558F48 /* AppDelegate.swift in Sources */,
 				DA28A01529B408DB00558F48 /* SceneDelegate.swift in Sources */,
 				DA41FA6229C37FCA003A4A9B /* Event.swift in Sources */,

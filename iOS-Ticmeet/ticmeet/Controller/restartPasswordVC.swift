@@ -20,7 +20,14 @@ class restartPasswordVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setAppearance()
+        
     }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+    
     
     override func viewWillAppear(_ animated: Bool) {
         alertLabel.isHidden = true
@@ -67,7 +74,7 @@ class restartPasswordVC: UIViewController {
             })
         }
     }
-
+    
     
     func setAppearance()
     {

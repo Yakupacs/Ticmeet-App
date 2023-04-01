@@ -14,18 +14,20 @@ class commentVC: UIViewController {
     @IBOutlet weak var sendCommentButton: UIButton!
     @IBOutlet weak var alertLabel: UILabel!
     @IBOutlet weak var commentTextView: UITextView!
+    
     var user = User()
     var selectedEvent = Event()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         getUser()
         commentTextView.layer.cornerRadius = 5
         commentTextView.layer.borderColor = UIColor.lightGray.cgColor
         commentTextView.layer.borderWidth = 1
         
         view.isUserInteractionEnabled = true
-        var gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(keyboardDismiss))
+        let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(keyboardDismiss))
         view.addGestureRecognizer(gestureRecognizer)
     }
     
