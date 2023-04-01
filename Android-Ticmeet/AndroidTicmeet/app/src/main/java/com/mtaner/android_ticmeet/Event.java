@@ -1,6 +1,8 @@
 package com.mtaner.android_ticmeet;
 
-public class Event {
+import java.io.Serializable;
+
+public class Event implements Serializable {
    String name;
     String category;
      String date;

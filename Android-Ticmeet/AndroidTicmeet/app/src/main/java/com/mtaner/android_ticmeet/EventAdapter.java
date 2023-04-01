@@ -13,28 +13,28 @@ import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
-public class imageAdapter extends RecyclerView.Adapter<imageAdapter.ViewHolder> {
+public class EventAdapter extends RecyclerView.Adapter<EventAdapter.ViewHolder> {
 
     // variables for array list and context.
     private ArrayList<Event> eventArrayList;
     private Context context;
 
     // creating a constructor.
-    public imageAdapter(ArrayList<Event> eventArrayList, Context context) {
+    public EventAdapter(ArrayList<Event> eventArrayList, Context context) {
         this.eventArrayList = eventArrayList;
         this.context = context;
     }
 
     @NonNull
     @Override
-    public imageAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public EventAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         // passing our layout file for displaying our card item
-        return new imageAdapter.ViewHolder(LayoutInflater.from(context).inflate(R.layout.recycler_row, parent, false));
+        return new EventAdapter.ViewHolder(LayoutInflater.from(context).inflate(R.layout.recycler_row, parent, false));
 
     }
 
     @Override
-    public void onBindViewHolder(@NonNull imageAdapter.ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull EventAdapter.ViewHolder holder, int position) {
         // on below line we are setting data to our ui components.
         Event event = eventArrayList.get(position);
         holder.textCategory.setText(event.getCategory());

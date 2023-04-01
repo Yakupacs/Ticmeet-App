@@ -1,8 +1,9 @@
 package com.mtaner.android_ticmeet;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Category {
+public class Category implements Serializable {
     private String eventCategory;
     private ArrayList<Event> eventArrayList;
 

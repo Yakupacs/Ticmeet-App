@@ -22,18 +22,6 @@
              />
 
         <!--text view for displaying news title-->
-        <TextView
-            android:id="@+id/textCategory"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-
-            android:layout_marginStart="4dp"
-            android:layout_marginTop="8dp"
-            android:padding="4dp"
-            android:text="News Title"
-            android:textAllCaps="false"
-            android:textColor="@color/white"
-            android:textStyle="bold" />
 
         <!--text view for displaying news description-->
 

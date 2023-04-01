@@ -1,6 +1,7 @@
 package com.mtaner.android_ticmeet;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,6 +11,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.ViewHolder> {
@@ -28,20 +30,32 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.ViewHo
     @Override
     public CategoryAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         // passing our layout file for displaying our card item
-        return new CategoryAdapter.ViewHolder(LayoutInflater.from(context).inflate(R.layout.recycler_konser, parent, false));
+        return new CategoryAdapter.ViewHolder(LayoutInflater.from(context).inflate(R.layout.recycler_category, parent, false));
     }
 
     @Override
-    public void onBindViewHolder(@NonNull CategoryAdapter.ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull CategoryAdapter.ViewHolder holder,int position) {
         // setting data to our views on below line.
         Category modal = categoriesArrayList.get(position);
         holder.textCategory2.setText(modal.getEventCategory());
-        imageAdapter adapter = new imageAdapter(modal.getEventArrayList(), context);
+        EventAdapter adapter = new EventAdapter(modal.getEventArrayList(), context);
         // below line is for setting a layout manager for our recycler view.
         // here we are creating horizontal list so we will provide orientation as vertical
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false);
         holder.idrecyclerevent.setLayoutManager(linearLayoutManager);
         holder.idrecyclerevent.setAdapter(adapter);
+
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                int pos = holder.getAdapterPosition();
+                if (pos != RecyclerView.NO_POSITION) {
+                    Intent intent =new Intent(holder.itemView.getContext(),ActivityEtkinliklerim.class);
+                    intent.putExtra("Event",categoriesArrayList.get(pos));
+                    holder.itemView.getContext().startActivity(intent);
+                }
+            }
+        });
     }
 
     @Override

@@ -29,6 +29,8 @@ import com.google.firebase.firestore.FirebaseFirestoreException;
 import com.google.firebase.firestore.QuerySnapshot;
 import com.mtaner.android_ticmeet.databinding.ActivityEtkinliklerBinding;
 
+import org.checkerframework.checker.units.qual.A;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -38,12 +40,10 @@ public class ActivityEtkinlikler extends AppCompatActivity {
 
     private FirebaseAuth auth;
     private FirebaseFirestore firebaseFirestore;
-
-    private imageAdapter imageAdapter;
     private CategoryAdapter adapter;
-    //private RecyclerView recyclercategory;
 
-    private ArrayList<Event> konserArrayList, tiyatroArrayList;
+    private ArrayList<Event> konserArrayList, tiyatroArrayList,söylesiArrayList,performansArrayList,sergiArrayList;
+    private ArrayList<Event> sinemaArrayList;
     private ArrayList<Category> categoriesArrayList;
 
 
@@ -61,12 +61,20 @@ public class ActivityEtkinlikler extends AppCompatActivity {
         categoriesArrayList = new ArrayList<>();
         konserArrayList = new ArrayList<>();
         tiyatroArrayList = new ArrayList<>();
+        söylesiArrayList=new ArrayList<>();
+        sinemaArrayList= new ArrayList<>();
+        sergiArrayList=new ArrayList<>();
+        performansArrayList=new ArrayList<>();
 
         adapter = new CategoryAdapter(categoriesArrayList, this);
         binding.recyclerViewCategory.setAdapter(adapter);
 
         getKonserEvent(categoriesArrayList,konserArrayList);
         getTiyatroEvent(categoriesArrayList,tiyatroArrayList);
+        getSöylesiEvent(categoriesArrayList,söylesiArrayList);
+        getPerformansEvent(categoriesArrayList,performansArrayList);
+        getSergiEvent(categoriesArrayList,sergiArrayList);
+        getSinemaEvent(categoriesArrayList,sinemaArrayList);
 
         adapter.notifyDataSetChanged();
 
@@ -92,7 +100,6 @@ public class ActivityEtkinlikler extends AppCompatActivity {
                         String category = (String) data.get("eventCategory");
 
                         konserArrayList.add(new Event(category,eventImage));
-
 
                         // Event konser = new Event(category, eventImage);
                         // konserArrayList.add(konser);
@@ -123,7 +130,6 @@ public class ActivityEtkinlikler extends AppCompatActivity {
 
                         tiyatroArrayList.add(new Event(category, eventImage));
 
-
                     }
                     categories.add(new Category("tiyatro", tiyatroArrayList));
                     adapter.notifyDataSetChanged();
@@ -134,38 +140,117 @@ public class ActivityEtkinlikler extends AppCompatActivity {
 
 
     }
-}
-    /*
-    private void getData(){
-        firebaseFirestore.collection("Event").addSnapshotListener(new EventListener<QuerySnapshot>() {
+
+    private void getSöylesiEvent(ArrayList<Category> categories, ArrayList<Event> söylesiArrayList) {
+        firebaseFirestore.collection("Event").whereEqualTo("eventCategory","Söyleşi").addSnapshotListener(new EventListener<QuerySnapshot>() {
             @Override
             public void onEvent(@Nullable QuerySnapshot value, @Nullable FirebaseFirestoreException error) {
-                if(error != null){
-                    Toast.makeText(ActivityEtkinlikler.this,error.getLocalizedMessage(),Toast.LENGTH_LONG).show();
+                if (error != null) {
+                    Toast.makeText(ActivityEtkinlikler.this, error.getLocalizedMessage(), Toast.LENGTH_LONG).show();
                 }
-                if (value!=null){
-                    for(DocumentSnapshot snapshot: value.getDocuments()){
-                        Map<String,Object> data= snapshot.getData();
-                        String eventImage=(String)data.get("eventImage");
-                        String category=(String) data.get("eventCategory");
+                if (value != null) {
 
+                    for (DocumentSnapshot snapshot : value.getDocuments()) {
+                        Map<String, Object> data = snapshot.getData();
+                        String eventImage = (String) data.get("eventImage");
+                        String category = (String) data.get("eventCategory");
 
-                        Event event1= new Event(category,eventImage);
-                        eventArrayList.add(event1);
-
+                        söylesiArrayList.add(new Event(category, eventImage));
 
                     }
+                    categories.add(new Category("Söyleşi", söylesiArrayList));
+                    adapter.notifyDataSetChanged();
 
-
-                    // konserAdapter.notifyDataSetChanged();
                 }
-
             }
         });
+
+
     }
+
+    private void getSinemaEvent(ArrayList<Category> categories, ArrayList<Event> söylesiArrayList) {
+        firebaseFirestore.collection("Event").whereEqualTo("eventCategory","Sinema").addSnapshotListener(new EventListener<QuerySnapshot>() {
+            @Override
+            public void onEvent(@Nullable QuerySnapshot value, @Nullable FirebaseFirestoreException error) {
+                if (error != null) {
+                    Toast.makeText(ActivityEtkinlikler.this, error.getLocalizedMessage(), Toast.LENGTH_LONG).show();
+                }
+                if (value != null) {
+
+                    for (DocumentSnapshot snapshot : value.getDocuments()) {
+                        Map<String, Object> data = snapshot.getData();
+                        String eventImage = (String) data.get("eventImage");
+                        String category = (String) data.get("eventCategory");
+
+                        sinemaArrayList.add(new Event(category, eventImage));
+
+                    }
+                    categories.add(new Category("Sinema", sinemaArrayList));
+                    adapter.notifyDataSetChanged();
+
+                }
+            }
+        });
+
+
+    }
+
+    private void getPerformansEvent(ArrayList<Category> categories, ArrayList<Event> söylesiArrayList) {
+        firebaseFirestore.collection("Event").whereEqualTo("eventCategory","Performans").addSnapshotListener(new EventListener<QuerySnapshot>() {
+            @Override
+            public void onEvent(@Nullable QuerySnapshot value, @Nullable FirebaseFirestoreException error) {
+                if (error != null) {
+                    Toast.makeText(ActivityEtkinlikler.this, error.getLocalizedMessage(), Toast.LENGTH_LONG).show();
+                }
+                if (value != null) {
+
+                    for (DocumentSnapshot snapshot : value.getDocuments()) {
+                        Map<String, Object> data = snapshot.getData();
+                        String eventImage = (String) data.get("eventImage");
+                        String category = (String) data.get("eventCategory");
+
+                        performansArrayList.add(new Event(category, eventImage));
+
+                    }
+                    categories.add(new Category("Performans", söylesiArrayList));
+                    adapter.notifyDataSetChanged();
+
+                }
+            }
+        });
+
+
+    }
+
+    private void getSergiEvent(ArrayList<Category> categories, ArrayList<Event> sergiArrayList) {
+        firebaseFirestore.collection("Event").whereEqualTo("eventCategory","Sergi").addSnapshotListener(new EventListener<QuerySnapshot>() {
+            @Override
+            public void onEvent(@Nullable QuerySnapshot value, @Nullable FirebaseFirestoreException error) {
+                if (error != null) {
+                    Toast.makeText(ActivityEtkinlikler.this, error.getLocalizedMessage(), Toast.LENGTH_LONG).show();
+                }
+                if (value != null) {
+
+                    for (DocumentSnapshot snapshot : value.getDocuments()) {
+                        Map<String, Object> data = snapshot.getData();
+                        String eventImage = (String) data.get("eventImage");
+                        String category = (String) data.get("eventCategory");
+
+                        sergiArrayList.add(new Event(category, eventImage));
+
+                    }
+                    categories.add(new Category("Sergi ", sergiArrayList));
+                    adapter.notifyDataSetChanged();
+
+                }
+            }
+        });
+
+
+    }
+
+
+
 }
-
-     */
-
 
 
