@@ -1,0 +1,277 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/layout_primary_color"
+    tools:context=".ui.activities.EventDetailActivity">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
+            <ImageView
+                android:id="@+id/imageViewBack"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/ic_back"
+                android:layout_alignParentStart="true"/>
+
+            <TextView
+                android:id="@+id/textViewEventName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Sila"
+                android:layout_centerHorizontal="true"
+                android:textSize="20sp"
+                android:textColor="@color/black"
+                android:textStyle="bold"/>
+
+            <ImageView
+                android:id="@+id/imageViewCheck"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+
+                android:layout_alignParentEnd="true"
+                android:layout_marginEnd="16dp"
+                />
+
+            <TextView
+                android:id="@+id/textViewCheck"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:visibility="gone"/>
+
+
+        </RelativeLayout>
+
+    </androidx.appcompat.widget.Toolbar>
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/nestedScroolView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/toolbar">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            >
+
+
+            <ImageView
+                android:id="@+id/imageViewEvent"
+                android:layout_width="match_parent"
+                android:layout_height="400dp"
+                android:scaleType="fitXY"
+                android:layout_marginStart="50dp"
+                android:layout_marginEnd="50dp"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:orientation="horizontal"
+                android:layout_marginTop="16dp"
+                android:weightSum="2"
+                >
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="50dp"
+                    android:background="@color/layout_light_gray_color"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginEnd="8dp">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Katılımcı Sayısı"
+                        android:gravity="center"
+                        android:textStyle="bold"
+
+                        android:layout_marginTop="4dp"
+                        android:textColor="@color/black"/>
+
+                    <TextView
+                        android:id="@+id/textViewAttentedCount"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="0"
+                        android:gravity="center"
+                        android:textStyle="normal"
+                        android:layout_marginTop="4dp"
+                        android:textColor="@color/black"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="50dp"
+                    android:background="@color/layout_light_gray_color"
+                    android:layout_weight="1"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginEnd="16dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Etkinlik Konumu"
+                        android:gravity="center"
+                        android:textStyle="bold"
+                        android:layout_marginTop="4dp"
+                        android:textColor="@color/black"/>
+
+                    <TextView
+                        android:id="@+id/textViewEventLocation"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="İstanbul"
+                        android:gravity="center"
+                        android:textStyle="normal"
+                        android:layout_marginTop="4dp"
+                        android:textColor="@color/black"/>
+
+                </LinearLayout>
+
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="14dp"
+                android:orientation="vertical"
+                android:background="@color/layout_light_gray_color">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Detaylar"
+                    android:gravity="center"
+                    android:layout_marginTop="16dp"
+                    android:textSize="16sp"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"/>
+
+                <TextView
+                    android:id="@+id/textVewDetail"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Detay"
+                    android:layout_margin="16dp"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/layoutEventAttended"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:layout_margin="14dp"
+                android:orientation="vertical"
+                android:background="@color/layout_light_gray_color">
+
+                <TextView
+                    android:id="@+id/textViewAttended"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Etkinliğe katılanlar"
+                    android:gravity="center"
+                    android:layout_marginTop="16dp"
+                    android:textSize="16sp"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"/>
+
+                <ProgressBar
+                    android:id="@+id/progressBarEventAttend"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="4dp"
+                    android:visibility="gone"/>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recyclerViewEventAttend"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"/>
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:layout_margin="14dp"
+                android:orientation="vertical"
+                >
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Etkinlik Değerlendirmeleri"
+                        android:gravity="start"
+                        android:textSize="16sp"
+                        android:textColor="@color/black"
+                        android:textStyle="bold"
+                        />
+
+                    <TextView
+                        android:id="@+id/textViewSendComment"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Yorum Yaz"
+                        android:layout_marginStart="10dp"
+                        android:drawablePadding="8dp"
+                        android:textColor="@color/colorPrimary"
+                        android:textStyle="bold"
+                        android:textSize="16sp"
+                        app:drawableStartCompat="@drawable/writer" />
+
+                </LinearLayout>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recyclerViewEventComments"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    />
+
+            </LinearLayout>
+
+
+
+        </LinearLayout>
+
+
+
+    </androidx.core.widget.NestedScrollView>
+
+    <ProgressBar
+        android:id="@+id/progressBarLoading"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:visibility="gone"/>
+
+
+
+</RelativeLayout>

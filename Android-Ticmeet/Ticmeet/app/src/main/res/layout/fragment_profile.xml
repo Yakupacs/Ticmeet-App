@@ -1,0 +1,290 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/layout_primary_color"
+    tools:context=".ui.fragment.ProfileFragment">
+
+    <androidx.appcompat.widget.Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/textViewUserNameToolbar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:textSize="16sp"
+                android:layout_centerVertical="true"
+                android:layout_centerHorizontal="true"/>
+
+            <ImageView
+                android:id="@+id/imageViewExit"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/ic_exit"
+                android:layout_alignParentEnd="true"
+                android:layout_marginEnd="16dp"
+                />
+        </RelativeLayout>
+
+    </androidx.appcompat.widget.Toolbar>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+
+                <ImageView
+                    android:id="@+id/imageViewUserTopImage"
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
+                    android:background="#A18A8A"
+                    android:scaleType="centerCrop"
+                    />
+
+                <LinearLayout
+                    android:id="@+id/layoutLogo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginTop="140dp">
+
+
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:id="@+id/imageViewUserProfile"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:layout_marginStart="8dp"
+                        android:src="@drawable/ic_launcher_foreground"
+                        />
+
+                    <TextView
+                        android:id="@+id/textViewUserName"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="adsadsasd"
+                        android:textStyle="bold"
+                        android:textColor="@color/black"
+                        android:layout_marginStart="16dp"
+                        />
+
+                    <TextView
+                        android:id="@+id/textViewUserUserName"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="adsadsasd"
+                        android:textStyle="normal"
+                        android:textColor="@color/colorGray"
+                        android:layout_marginStart="16dp"
+                        />
+
+
+                </LinearLayout>
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/buttonEditProfile"
+                    android:layout_width="100dp"
+                    android:layout_height="25dp"
+                    android:layout_below="@id/imageViewUserTopImage"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginTop="8dp"
+                    android:text="Düzenle"
+                    android:textAllCaps="false"
+                    android:textColor="#8C8C8C"
+                    android:backgroundTint="#D8D8D8"
+                    android:background="@drawable/button_bg"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_below="@id/layoutLogo"
+                    >
+
+                    <TextView
+                        android:id="@+id/textViewBio"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="bio"
+                        android:textColor="@color/colorGray"
+                        android:padding="16dp"/>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:weightSum="4">
+
+                        <LinearLayout
+                            android:id="@+id/layoutFollowing"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:layout_marginStart="16dp"
+                            android:layout_weight="1">
+
+                            <TextView
+                                android:id="@+id/textViewFollowing"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="0"
+                                android:textColor="@color/black"
+                                />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Takip ettiklerim"
+                                android:textColor="@color/colorGray"
+                                android:layout_marginStart="2dp"
+                                />
+
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/layoutFollowers"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:layout_marginStart="4dp"
+                            android:layout_weight="1">
+
+                            <TextView
+                                android:id="@+id/textViewFollowers"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="0"
+                                android:textColor="@color/black"
+                                />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Takipçiler"
+                                android:textColor="@color/colorGray"
+                                android:layout_marginStart="2dp"
+                                />
+
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:layout_marginStart="4dp"
+                            android:layout_weight="1">
+
+                            <TextView
+                                android:id="@+id/textViewEventCount"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="0"
+                                android:textColor="@color/black"
+                                />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Katıldığı etkinlik"
+                                android:textColor="@color/colorGray"
+                                android:layout_marginStart="2dp"
+                                />
+
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:layout_marginStart="4dp"
+                            android:layout_weight="1">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="0"
+                                android:textColor="@color/black"
+                                />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="İnceleme"
+                                android:textColor="@color/colorGray"
+                                android:layout_marginStart="2dp"
+                                />
+
+                        </LinearLayout>
+
+
+                    </LinearLayout>
+
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Kullanıcı Etkinlikleri"
+                        android:textColor="@color/black"
+                        android:gravity="center"
+                        android:layout_marginTop="16dp"
+                        android:textSize="18sp"
+                        android:textStyle="bold"/>
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/recyclerViewUserEvents"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"/>
+
+                    <ProgressBar
+                        android:id="@+id/progressBarEventLoading"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:visibility="gone"/>
+
+
+                </LinearLayout>
+
+            </RelativeLayout>
+
+
+
+
+
+        </androidx.core.widget.NestedScrollView>
+
+
+
+
+
+
+
+    </RelativeLayout>
+
+
+
+
+
+</LinearLayout>

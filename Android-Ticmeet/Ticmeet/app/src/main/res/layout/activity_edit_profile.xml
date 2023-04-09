@@ -1,0 +1,367 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:background="@color/layout_primary_color"
+    tools:context=".ui.activities.EditProfileActivity">
+
+    <androidx.appcompat.widget.Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/imageViewBack"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/ic_back"
+                android:layout_alignParentStart="true"
+                android:layout_centerVertical="true"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Profili Düzenle"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:textSize="16sp"
+                android:layout_centerVertical="true"
+                android:layout_centerHorizontal="true"/>
+
+            <ProgressBar
+                android:id="@+id/progressBarLoading"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_marginEnd="8dp"
+                android:visibility="gone"/>
+
+            <TextView
+                android:id="@+id/textViewSave"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Kaydet"
+                android:textColor="@color/colorPrimary"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:padding="8dp"
+                android:layout_alignParentEnd="true"/>
+
+        </RelativeLayout>
+
+    </androidx.appcompat.widget.Toolbar>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <RelativeLayout
+                    android:id="@+id/layoutUserTop"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:id="@+id/imageViewUserTopImage"
+                        android:layout_width="match_parent"
+                        android:layout_height="200dp"
+                        android:background="#A18A8A"
+                        android:scaleType="centerCrop"
+                        />
+
+                    <ImageView
+                        android:id="@+id/imageViewEditTopPhoto"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:src="@drawable/ic_camera" />
+
+                </RelativeLayout>
+
+
+
+                <LinearLayout
+                    android:id="@+id/layoutLogo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginTop="140dp">
+
+
+                    <RelativeLayout
+                        android:id="@+id/layoutUserProfile"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                        <de.hdodenhof.circleimageview.CircleImageView
+                            android:id="@+id/imageViewUserProfile"
+                            android:layout_width="100dp"
+                            android:layout_height="100dp"
+                            android:layout_marginStart="8dp"
+                            android:src="@drawable/ic_launcher_foreground"
+                            />
+
+                        <ImageView
+                            android:id="@+id/imageViewEditProfilePhoto"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerInParent="true"
+                            android:src="@drawable/ic_camera" />
+
+                    </RelativeLayout>
+
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Bilgiler"
+                        android:textStyle="bold"
+                        android:textColor="@color/black"
+                        android:layout_marginStart="16dp"
+                        />
+
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_below="@id/layoutLogo"
+                    >
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Adınız ve Soyadınız"
+                        android:textStyle="normal"
+                        android:layout_marginTop="8dp"
+                        android:textColor="@color/black"
+                        android:layout_marginStart="16dp"
+                        android:textSize="16sp"
+                        />
+
+                    <EditText
+                        android:id="@+id/editTextUserNameAndLastName"
+                        android:layout_width="match_parent"
+                        android:layout_height="34dp"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginEnd="16dp"
+                        android:layout_marginTop="4dp"
+                        android:hint="İsim"
+                        android:textColor="@color/colorGray"
+                        android:paddingStart="16dp"
+                        android:paddingEnd="16dp"
+                        android:background="@drawable/edit_text_edit_user_bg"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Cinsiyetiniz"
+                        android:textStyle="normal"
+                        android:layout_marginTop="8dp"
+                        android:textColor="@color/black"
+                        android:layout_marginStart="16dp"
+                        android:textSize="16sp"/>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_margin="16dp"
+                        android:layout_gravity="center"
+                        android:gravity="center">
+
+                        <TextView
+                            android:layout_width="60dp"
+                            android:layout_height="wrap_content"
+                            android:text="Cinsiyet: "/>
+
+                        <RelativeLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginEnd="10dp">
+
+                            <androidx.appcompat.widget.AppCompatSpinner
+                                android:id="@+id/spinnerGender"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/custom_spinner_bg"/>
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:src="@drawable/baseline_keyboard_arrow_down_24"
+                                android:layout_alignParentEnd="true"
+                                android:layout_centerVertical="true"
+                                android:layout_marginEnd="8dp"
+                                app:tint="#81707070" />
+
+                        </RelativeLayout>
+
+
+
+                    </LinearLayout>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Yaşınız"
+                        android:textStyle="normal"
+                        android:layout_marginTop="8dp"
+                        android:textColor="@color/black"
+                        android:layout_marginStart="16dp"
+                        android:textSize="16sp"/>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_margin="16dp"
+                        android:layout_gravity="center"
+                        android:gravity="center">
+
+                        <TextView
+                            android:layout_width="60dp"
+                            android:layout_height="wrap_content"
+                            android:text="Yaş: "/>
+
+                        <RelativeLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginEnd="10dp">
+
+                            <androidx.appcompat.widget.AppCompatSpinner
+                                android:id="@+id/spinnerAge"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/custom_spinner_bg"/>
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:src="@drawable/baseline_keyboard_arrow_down_24"
+                                android:layout_alignParentEnd="true"
+                                android:layout_centerVertical="true"
+                                android:layout_marginEnd="8dp"
+                                app:tint="#81707070" />
+
+                        </RelativeLayout>
+
+
+
+                    </LinearLayout>
+
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Biyografiniz"
+                        android:textStyle="normal"
+                        android:layout_marginTop="8dp"
+                        android:textColor="@color/black"
+                        android:layout_marginStart="16dp"
+                        android:textSize="16sp"/>
+
+                    <EditText
+                        android:id="@+id/editTextBio"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginEnd="16dp"
+                        android:layout_marginTop="4dp"
+                        android:hint="bio"
+                        android:textColor="@color/colorGray"
+                        android:paddingStart="16dp"
+                        android:paddingEnd="16dp"
+                        android:lines="5"
+                        android:gravity="top"
+                        android:paddingTop="4dp"
+                        android:background="@drawable/edit_text_edit_user_bg"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Yaşadığınız yer"
+                        android:textStyle="normal"
+                        android:layout_marginTop="8dp"
+                        android:textColor="@color/black"
+                        android:layout_marginStart="16dp"
+                        android:textSize="16sp"/>
+
+                    <EditText
+                        android:id="@+id/editTextCity"
+                        android:layout_width="match_parent"
+                        android:layout_height="34dp"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginEnd="16dp"
+                        android:layout_marginTop="4dp"
+                        android:hint="İstanbul"
+                        android:textColor="@color/colorGray"
+                        android:paddingStart="16dp"
+                        android:paddingEnd="16dp"
+                        android:background="@drawable/edit_text_edit_user_bg"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Kullanıcı adınız"
+                        android:textStyle="normal"
+                        android:layout_marginTop="8dp"
+                        android:textColor="@color/black"
+                        android:layout_marginStart="16dp"
+                        android:textSize="16sp"/>
+
+                    <EditText
+                        android:id="@+id/editTextUserUserName"
+                        android:layout_width="match_parent"
+                        android:layout_height="34dp"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginEnd="16dp"
+                        android:layout_marginTop="4dp"
+                        android:hint="Kullanıcı adı"
+                        android:textColor="@color/colorGray"
+                        android:paddingStart="16dp"
+                        android:paddingEnd="16dp"
+                        android:background="@drawable/edit_text_edit_user_bg"
+                        android:layout_marginBottom="36dp"/>
+
+                </LinearLayout>
+
+            </RelativeLayout>
+
+
+
+
+
+        </androidx.core.widget.NestedScrollView>
+
+
+
+
+
+
+
+    </RelativeLayout>
+
+
+
+
+
+</LinearLayout>

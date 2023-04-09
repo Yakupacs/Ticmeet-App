@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="8dp"
+    android:background="@color/layout_primary_color"
+    >
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/imageViewUserPhoto"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_alignParentStart="true"
+        />
+
+    <LinearLayout
+        android:id="@+id/layoutText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginTop="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_toEndOf="@id/imageViewUserPhoto">
+
+        <TextView
+            android:id="@+id/textViewUserName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            />
+
+        <TextView
+            android:id="@+id/textViewUserUserName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:textColor="@color/colorGray"
+            android:textStyle="normal"
+            />
+
+    </LinearLayout>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/buttonSendMessage"
+        android:layout_width="110dp"
+        android:layout_height="30dp"
+        android:layout_alignParentEnd="true"
+        android:layout_centerVertical="true"
+        android:background="@drawable/button_bg"
+        android:text="Mesaj Gönder"
+        android:textColor="@color/white"
+        android:textAllCaps="false"
+        android:layout_marginEnd="8dp"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="@color/layout_light_gray_color"
+        android:layout_below="@id/imageViewUserPhoto"
+        android:layout_marginTop="8dp"/>
+
+
+
+
+</RelativeLayout>

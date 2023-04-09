@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/layout_primary_color"
+    tools:context=".ui.fragment.LoginFragment">
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:visibility="gone"/>
+
+    <ImageView
+        android:id="@+id/imageViewLogin"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/loginLayout"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginEnd="0dp"
+        android:layout_marginBottom="1dp"
+        android:src="@drawable/giris_yap" />
+
+    <LinearLayout
+        android:id="@+id/loginLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_centerVertical="true">
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/editTextEmail"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@drawable/login_register_edittext_bg"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:hint="Email"
+            android:inputType="textEmailAddress"
+            android:textColorHint="@color/colorGray"
+            android:drawableTint="@color/colorGray"
+            android:drawablePadding="8dp"
+            android:drawableStart="@drawable/ic_user"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            />
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/editTextPassword"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@drawable/login_register_edittext_bg"
+            android:layout_marginTop="16dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:hint="Şifre"
+            android:inputType="textPassword"
+            android:textColorHint="@color/colorGray"
+            android:drawableTint="@color/colorGray"
+            android:drawablePadding="8dp"
+            android:drawableStart="@drawable/ic_lock"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            />
+
+        <TextView
+            android:id="@+id/textViewResetPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Şifremi unuttum"
+            android:gravity="center"
+            android:layout_marginTop="8dp"
+            android:textColor="@color/black"/>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/buttonLogin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="Giriş Yap"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:textColor="@color/white"
+            android:textAllCaps="false"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/button_bg"/>
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/layoutOther"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_below="@id/loginLayout"
+        android:layout_marginTop="36dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_gravity="center"
+            android:gravity="center">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Hesabın yok mu"
+                android:textSize="14sp"
+                android:textColor="@color/black"/>
+
+            <TextView
+                android:id="@+id/textViewRegister"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Kaydol"
+                android:textColor="@color/colorPrimary"
+                android:textStyle="bold"
+                android:textSize="16sp"
+                android:layout_marginStart="16dp"/>
+
+        </LinearLayout>
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="-------- VEYA --------"
+            android:gravity="center"
+            android:textColor="@color/colorGray"
+            android:layout_marginTop="48dp"
+            android:textSize="16sp"/>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/buttonFacebookLogin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="Facebook ile Hızlı Giriş"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:textColor="@color/colorPrimaryDark"
+            android:textAllCaps="false"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/button_facebook_login_bg"/>
+
+
+    </LinearLayout>
+
+
+
+
+
+</RelativeLayout>
