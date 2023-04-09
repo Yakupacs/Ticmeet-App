@@ -10,7 +10,6 @@ import Firebase
 
 class messageVC: UIViewController, UITextFieldDelegate {
     
-    @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var userImageView: UIImageView!
     @IBOutlet weak var backButton: UIButton!
     @IBOutlet weak var userNameLabel: UILabel!
@@ -20,6 +19,8 @@ class messageVC: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var messageView: UIView!
     
     var previousLabel: UILabel? = nil
+    
+    var labels = [UILabel]()
     
     var messages = [Message]()
     var mainUser = User()
@@ -33,67 +34,137 @@ class messageVC: UIViewController, UITextFieldDelegate {
     
     override func viewWillAppear(_ animated: Bool) {
         mainUser.userEmail = Auth.auth().currentUser?.email
-        otherUser.userEmail = "muratcantaner@gmail.com"
+        print("mainUser: \(mainUser.userEmail!)\notherUser: \(otherUser.userEmail!)")
         getMessages()
     }
+    
+    @IBAction func sendMessage(_ sender: Any) {
+        if messageTextfield.text != ""{
+            let firestore = Firestore.firestore()
+            
+            firestore.collection("Message")
+                .whereField("usersEmail", arrayContains: mainUser.userEmail!)
+                .getDocuments { querySnapshot, error in
+                    if let error = error{
+                        print("Hata: \(error.localizedDescription)")
+                    }
+                    else{
+                        guard let querySnapshot = querySnapshot else { return }
+                        
+                        var sign = 0
+                        
+                        for document in querySnapshot.documents{
+                            
+                            if let usersEmail = document.get("usersEmail") as? [String]{
+                                
+                                if usersEmail.contains(self.otherUser.userEmail!), usersEmail.contains(self.mainUser.userEmail!){
+                                    sign = 1
+                                    
+                                    let documentRef = document.reference
+                                    
+                                    let newMessage = [
+                                        "message": self.messageTextfield.text!,
+                                        "timestamp": Date(),
+                                        "messageSeen": false,
+                                        "messageUserEmail": self.mainUser.userEmail!
+                                    ] as [String : Any]
+                                    
+                                    documentRef.updateData(["messages": FieldValue.arrayUnion([newMessage])]) { error in
+                                        if let error = error{
+                                            print("Hata: \(error.localizedDescription)")
+                                        }
+                                        else{
+                                            self.messageTextfield.text = ""
+                                            print("Veri güncelleme başarılı!")
+                                        }
+                                    }
+                                    
+                                }
+                                
+                            }
+                            
+                        }
+                        
+                        if sign == 0{
+                            
+                            var firestoree = Firestore.firestore()
+                            
+                            let newMessage = [
+                                "message": self.messageTextfield.text!,
+                                "timestamp": Date(),
+                                "messageSeen": false,
+                                "messageUserEmail": self.mainUser.userEmail!
+                            ] as [String : Any]
+                            
+                            
+                            firestoree.collection("Message").addDocument(data: ["usersEmail" : [self.mainUser.userEmail!, self.otherUser.userEmail!],"messages": FieldValue.arrayUnion([newMessage])]) { error in
+                                if let error = error{
+                                    print("Hata: \(error.localizedDescription)")
+                                }
+                                else{
+                                    print("İlk mesaj ekleme başarılı!")
+                                }
+                            }
+                        }
+                    }
+                }
+        }
+        
+    }
+    
     
     // MARK: - getMessages()
     func getMessages(){
         let firestore = Firestore.firestore()
-        firestore.collection("Message").whereField("usersEmail", isEqualTo: [mainUser.userEmail, otherUser.userEmail]).addSnapshotListener { querySnapshot, error in
-            if let error = error{
-                print("Hata: \(error.localizedDescription)")
-            }
-            else{
-                // START SNAPSHOT
-                self.messages = []
-                
-                guard let querySnapshot = querySnapshot else { return }
-                
-                print("Document sayısı: \(querySnapshot.documents.count)")
-                for document in querySnapshot.documents{
-                    if let messages = document.get("messages") as? [[String: Any]]{
-                        for message in messages{
-                            let element = Message()
-                            for val in message{
-                                
-                                if val.key == "message"{
-                                    element.message = val.value as! String
-                                }
-                                else if val.key == "messageSeen"{
-                                    element.messageIsSeen = val.value as! Bool
-                                }
-                                else if val.key == "messageUserEmail"{
-                                    element.messageUserEmail = val.value as! String
-                                }
-                                else if val.key == "timestamp" {
-                                    if let timestamp = val.value as? Timestamp {
-                                        let seconds = Double(timestamp.seconds)
-                                        let nanoseconds = Double(timestamp.nanoseconds) / 1_000_000_000
-                                        element.messageTime = Date(timeIntervalSince1970: seconds + nanoseconds)
+        
+        firestore.collection("Message")
+            .whereField("usersEmail", arrayContains: mainUser.userEmail!)
+            .addSnapshotListener { querySnapshot, error in
+                if let error = error{
+                    print("Hata: \(error.localizedDescription)")
+                }
+                else{
+                    self.messages = []
+                    
+                    guard let querySnapshot = querySnapshot else { return }
+                    
+                    for document in querySnapshot.documents{
+                        if let usersEmails = document.get("usersEmail") as? [String]{
+                            if usersEmails.contains(self.otherUser.userEmail!), usersEmails.contains(self.mainUser.userEmail!){
+                                if let messages = document.get("messages") as? [[String: Any]]{
+                                    for message in messages{
+                                        let element = Message()
+                                        for val in message{
+                                            
+                                            if val.key == "message"{
+                                                element.message = val.value as! String
+                                            }
+                                            else if val.key == "messageSeen"{
+                                                element.messageIsSeen = val.value as! Bool
+                                            }
+                                            else if val.key == "messageUserEmail"{
+                                                element.messageUserEmail = val.value as! String
+                                            }
+                                            else if val.key == "timestamp" {
+                                                if let timestamp = val.value as? Timestamp {
+                                                    let seconds = Double(timestamp.seconds)
+                                                    let nanoseconds = Double(timestamp.nanoseconds) / 1_000_000_000
+                                                    element.messageTime = Date(timeIntervalSince1970: seconds + nanoseconds)
+                                                }
+                                            }
+                                            
+                                        }
+                                        self.messages.append(element)
                                     }
                                 }
                                 
                             }
-                            self.messages.append(element)
+                            
                         }
                     }
+                    self.createLabel()
                 }
-                //                print("Mesaj sayısı: \(self.messages.count)")
-                //                for i in self.messages{
-                //                    print(i.messageTime.timeIntervalSince1970)
-                //                    let dateFormatter = DateFormatter()
-                //                    dateFormatter.dateFormat = "dd/MM/yyyy HH:mm:ss"
-                //                    let dateString = dateFormatter.string(from: i.messageTime)
-                //                    print("\(dateString) Email: \(i.messageUserEmail)\nMessage: \(i.message)")
-                //                }
-                
-                // FINISH SNAPSHOT
-                self.createLabel()
-                
             }
-        }
-        
     }
     
     // MARK: - textFieldDidChangeSelection()
@@ -122,7 +193,7 @@ class messageVC: UIViewController, UITextFieldDelegate {
     @objc func keyboardWillHide(notification: NSNotification) {
         // Mesaj görünümünü animasyonlu olarak orijinal konumuna taşı
         UIView.animate(withDuration: 0.1, animations: { [self] in
-            self.messageView.topAnchor.constraint(equalTo: scrollView.bottomAnchor, constant: 0).isActive = true
+            self.messageView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 10).isActive = true
         })
     }
     
@@ -150,25 +221,6 @@ class messageVC: UIViewController, UITextFieldDelegate {
     // MARK: - backFunc
     @IBAction func backFunc(_ sender: Any) {
         self.dismiss(animated: true)
-    }
-    
-    // MARK: - createMessageLabel
-    func createMessageLabel(text: String) -> UILabel {
-        let label = PaddingLabel(withInsets: 6, 6, 16, 16)
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = text
-        label.font = UIFont.systemFont(ofSize: 16)
-        label.numberOfLines = 0
-        label.textColor = UIColor.black
-        label.backgroundColor = UIColor(named: NSDataAssetName(stringLiteral: "lightGrayColor"))!
-        label.layer.cornerRadius = 14
-        label.clipsToBounds = true
-        label.setContentHuggingPriority(.required, for: .vertical)
-        label.layer.masksToBounds = true
-        label.sizeToFit()
-        label.lineBreakMode = .byCharWrapping
-        
-        return label
     }
     
     // MARK: - keyboardGesture
@@ -199,47 +251,100 @@ class messageVC: UIViewController, UITextFieldDelegate {
     }
     
     func createLabel(){
-        let containerView = UIView()
-
-        if scrollView.subviews.count < 3{            
-            scrollView.translatesAutoresizingMaskIntoConstraints = false
-            scrollView.contentSize = CGSize(width: view.frame.width, height: 1000)
-            scrollView.addSubview(containerView)
-            containerView.translatesAutoresizingMaskIntoConstraints = false
-            containerView.topAnchor.constraint(equalTo: scrollView.topAnchor).isActive = true
-            containerView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
-            containerView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
-            containerView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor).isActive = true
-        }
-        var sign = 0
-        for message in messages{
-            let label = createMessageLabel(text: message.message)
-            containerView.addSubview(label)
+        // Önceki scrollView ve containerView'ı bulmak ve kaldırmak için etiketleri tanımla
+        let scrollViewTag = 1001
+        let containerViewTag = 1002
+        
+        // Önceki scrollView ve containerView'ı bul
+        if let previousScrollView = view.viewWithTag(scrollViewTag),
+           let previousContainerView = previousScrollView.viewWithTag(containerViewTag) {
             
-            if let previousLabel = previousLabel {
-                label.topAnchor.constraint(equalTo: previousLabel.bottomAnchor, constant: 15).isActive = true
-            } else {
-                label.topAnchor.constraint(equalTo: containerView.topAnchor, constant: 15).isActive = true
-            }
+            // Önceki scrollView'dan containerView'ı kaldır
+            previousContainerView.removeFromSuperview()
             
-            if sign % 2 == 0{
-                // SAĞ
-                label.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -20).isActive = true
-            }
-            else{
-                // SOL
-                label.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 20).isActive = true
-            }
-            label.widthAnchor.constraint(lessThanOrEqualToConstant: 300).isActive = true
-            sign += 1
-            
-            previousLabel = label
+            // Önceki scrollView'yı kaldır
+            previousScrollView.removeFromSuperview()
         }
         
-        // Son mesajı alt tarafta tutun
-        if let previousLabel = previousLabel {
-            containerView.bottomAnchor.constraint(equalTo: previousLabel.bottomAnchor, constant: 10).isActive = true
+        let scrollView = UIScrollView(frame: CGRect(x:0 , y: 0, width: view.frame.width, height: view.frame.height))
+        let containerView = UIView(frame: CGRect(x:0 , y: 0, width: view.frame.width, height: 1000))
+        
+        view.addSubview(scrollView)
+        
+        scrollView.tag = scrollViewTag
+        containerView.tag = containerViewTag
+        
+        scrollView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            scrollView.topAnchor.constraint(equalTo: userNameLabel.bottomAnchor, constant: 30),
+            scrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            scrollView.bottomAnchor.constraint(equalTo: messageView.topAnchor)
+        ])
+        scrollView.contentSize = CGSize(width: view.frame.width, height: 1000)
+        //        scrollView.backgroundColor = .brown
+        
+        containerView.translatesAutoresizingMaskIntoConstraints = false
+        //        containerView.backgroundColor = .blue
+        
+        scrollView.addSubview(containerView)
+        
+        NSLayoutConstraint.activate([
+            containerView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor),
+            containerView.topAnchor.constraint(equalTo: scrollView.topAnchor),
+            containerView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor),
+            containerView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
+            containerView.widthAnchor.constraint(equalTo: scrollView.widthAnchor)
+        ])
+        
+        
+        for label in labels {
+            label.removeFromSuperview()
         }
+        labels.removeAll()
+        
+        for message in messages{
+            let label = createMessageLabel(text: message.message)
+            
+            labels.append(label)
+        }
+        
+        for (i,label) in labels.enumerated(){
+            containerView.addSubview(label)
+            if i == 0{
+                label.topAnchor.constraint(equalTo: containerView.topAnchor, constant: 15).isActive = true
+            }
+            else{
+                label.topAnchor.constraint(equalTo: labels[i - 1].bottomAnchor, constant: 15).isActive = true
+            }
+            
+            if messages[i].messageUserEmail == otherUser.userEmail{
+                label.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 20).isActive = true
+            }
+            else{
+                label.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -20).isActive = true
+            }
+            label.widthAnchor.constraint(lessThanOrEqualToConstant: 300).isActive = true
+        }
+    }
+    
+    // MARK: - createMessageLabel
+    func createMessageLabel(text: String) -> UILabel {
+        let label = PaddingLabel(withInsets: 6, 6, 16, 16)
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.text = text
+        label.font = UIFont.systemFont(ofSize: 16)
+        label.numberOfLines = 0
+        label.textColor = UIColor.black
+        label.backgroundColor = UIColor(named: NSDataAssetName(stringLiteral: "lightGrayColor"))!
+        label.layer.cornerRadius = 14
+        label.clipsToBounds = true
+        label.setContentHuggingPriority(.required, for: .vertical)
+        label.layer.masksToBounds = true
+        label.sizeToFit()
+        label.lineBreakMode = .byCharWrapping
+        
+        return label
     }
 }
 

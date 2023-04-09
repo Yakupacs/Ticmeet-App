@@ -89,6 +89,7 @@ class registerNextVC: UIViewController, UIImagePickerControllerDelegate, UINavig
                             let firestorePost = ["userEmail" : self.user.userEmail!,
                                                  "userName" : self.nameTextfield.text!,
                                                  "userImage" : imageUrl!,
+                                                 "userTopImage" : "https://firebasestorage.googleapis.com/v0/b/ticmeet-161a6.appspot.com/o/light-gray-concrete-wall.jpg?alt=media&token=999dc34f-f987-4ed3-b2b0-2c73620b53b4",
                                                  "userAge" : self.user.userAge!,
                                                  "userUsername" : self.usernameTextfield.text!,
                                                  "userGender" : self.user.userGender!,
@@ -97,7 +98,7 @@ class registerNextVC: UIViewController, UIImagePickerControllerDelegate, UINavig
                                                  "userFollowers" : [],
                                                  "userFollowing" : [],
                                                  "userEventsID" : [],
-                                                 "userRegisterDate": self.user.userRegisterDate!]
+                                                 "userRegisterDate": self.user.userRegisterDate!] as [String : Any]
                             
                             firestoreReference = firestoreDatabase.collection("User").addDocument(data: firestorePost, completion: { error in
                                 if error != nil{

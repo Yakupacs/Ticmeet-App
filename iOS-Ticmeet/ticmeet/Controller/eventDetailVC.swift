@@ -161,11 +161,11 @@ class eventDetailVC: UIViewController, UICollectionViewDelegate, UICollectionVie
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "toUserDetail"{
-            let destVC = segue.destination as! usersListVC
+            let destVC = segue.destination as! eventUserListVC
             destVC.users = eventUsers
         }
         else if segue.identifier == "toComment"{
-            let destVC = segue.destination as! commentVC
+            let destVC = segue.destination as! eventCommentVC
             destVC.selectedEvent = getEvent
         }
     }

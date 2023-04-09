@@ -203,8 +203,18 @@ class profileEditVC: UIViewController, UIImagePickerControllerDelegate, UINaviga
         nameTextfield.text = gettingUser.userName
         cityTextfield.text = gettingUser.userLocation
         usernameTextfield.text = gettingUser.userUsername
-        profileImageView.sd_setImage(with: URL(string: gettingUser.userImage!))
-        topImageView.sd_setImage(with: URL(string: gettingUser.userTopImage!))
+        if let image = gettingUser.userImage{
+            profileImageView.sd_setImage(with: URL(string: image))
+        }
+        else{
+            profileImageView.image = UIImage(named: "userSelectImage")
+        }
+        if let image = gettingUser.userTopImage{
+            topImageView.sd_setImage(with: URL(string: image))
+        }
+        else{
+            topImageView.image = UIImage(named: "profileTopImage")
+        }
     }
     
     func popUpButtonGenderFunc(){
