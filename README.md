@@ -5,7 +5,10 @@
 # Description
 ###### With this great event listing application, you can keep track of current events, get in touch with people who are attending the events, and have the opportunity to go to the events together with them.
 
+</br>
+
 # Screenshots
+
 <img width=200 src="https://user-images.githubusercontent.com/73075252/230889128-903f7a8a-2fa4-45ba-bfc4-c67256c1bcd9.png">
 <img width=200 src="https://user-images.githubusercontent.com/73075252/230889134-328365dc-0fb8-4860-a856-77bbcd4e3d7a.png">
 <img width=200 src="https://user-images.githubusercontent.com/73075252/230889141-a6e31b87-6076-4e81-8515-464191441ef0.png">
