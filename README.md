@@ -7,7 +7,7 @@
 
 </br>
 
-# Screenshots
+## Screenshots
 
 <img width=200 src="https://user-images.githubusercontent.com/73075252/230889128-903f7a8a-2fa4-45ba-bfc4-c67256c1bcd9.png">
 <img width=200 src="https://user-images.githubusercontent.com/73075252/230889134-328365dc-0fb8-4860-a856-77bbcd4e3d7a.png">
