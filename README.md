@@ -9,9 +9,9 @@
 
 ## Screenshots
 
-<img width=200 src="https://user-images.githubusercontent.com/73075252/230889128-903f7a8a-2fa4-45ba-bfc4-c67256c1bcd9.png">
-<img width=200 src="https://user-images.githubusercontent.com/73075252/230889134-328365dc-0fb8-4860-a856-77bbcd4e3d7a.png">
-<img width=200 src="https://user-images.githubusercontent.com/73075252/230889141-a6e31b87-6076-4e81-8515-464191441ef0.png">
+<img width="200" src="https://github.com/Yakupacs/Ticmeet-App/assets/73075252/20cc8efd-5434-4c9e-8d68-3b4cb7626491">
+<img width="200" src="https://github.com/Yakupacs/Ticmeet-App/assets/73075252/ee5513d4-855f-45fd-9ce7-57d319059025">
+<img width="200" src="https://github.com/Yakupacs/Ticmeet-App/assets/73075252/37649039-a2fb-4744-8b59-8d437b25f68c">
 <img width=200 src="https://user-images.githubusercontent.com/73075252/230889149-6b31a40c-939a-4ad6-af83-44e9746c2a71.png">
 <img width=200 src="https://user-images.githubusercontent.com/73075252/230889153-3974c9ab-3e1b-4f30-bfb5-15b0f093b156.png">
 <img width=200 src="https://user-images.githubusercontent.com/73075252/230889170-5709e008-9e29-41c1-970a-760f838463c7.png">
